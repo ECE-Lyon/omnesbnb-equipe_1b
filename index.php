@@ -16,7 +16,7 @@
     <button type="submit">Se connecter</button>
 </form>
 
-<p><a href="inscription.php" style="color: blue;">Créer un compte</a></p>
+<p><a href="inscription.php" style="color: blue;">Créer un compte</a></p>caca
 
 <?php if (isset($_SESSION['erreur'])) { echo "<p class='erreur'>" . $_SESSION['erreur'] . "</p>"; unset($_SESSION['erreur']); } ?>
 </body>
