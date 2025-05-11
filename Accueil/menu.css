@@ -1,0 +1,104 @@
+@media screen and (min-width: 428px) /*représente un iphone 12-13 Pro max*/{
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: white;
+        color: black;
+    }
+
+    .header-button {
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: black;
+        cursor: pointer;
+    }
+
+    .hidden-menu {
+        display: none;
+        background-color: #f2f2f2;
+        padding: 10px;
+    }
+
+    .hidden-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .hidden-menu li {
+        margin: 10px 0;
+    }
+
+    .hidden-menu a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .visible {
+        display: block;
+    }
+}
+
+.recherche-logement {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    max-width: 415px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 12px;
+    border: none;
+    background-color: #eae6f2;  /* un violet/gris doux */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.filter-btn, .search-container input[type="text"], .search-btn {
+    padding: 10px 14px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: #d9d9d9;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+/* Filtres cachés par défaut */
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 20px;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.filters.hidden {
+    display: none;
+}
+
+.filters label {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.filters input {
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}

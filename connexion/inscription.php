@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Créer un compte - OmnesBnB</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="connexion.css">
 </head>
 <body>
 <h1>Créer un compte</h1>

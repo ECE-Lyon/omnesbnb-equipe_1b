@@ -9,5 +9,5 @@ $mdp = $_POST['mdp'];
 $requete = $bdd->prepare("INSERT INTO utilisateurs (prenom, nom, email, mot_de_passe) VALUES (?, ?, ?, ?)");
 $requete->execute([$prenom, $nom, $email, $mdp]);
 
-header("Location: index.php");
+header("Location: login.php");
 exit();
