@@ -25,26 +25,42 @@ $messages = [
 
     <body>
         <header>
-            <div class="header-container">
-                <button id="menuToggle" class="header-button">☰</button>
-                <button onclick="window.location.href='menu.php'" class="header-button logo-button">
-                    <img src="../images/logo_omnesBNB_noir.png" alt="Logo OmnesBNB" class="logo-img">
-                    <h1>OmnesBnB</h1>
-                </button>
-                <button onclick="window.location.href='../connexion/login.php'" class="header-button">+</button>
-            </div>
+            <section>
+                <div class="header-container">
+                    <button id="menuToggle" class="header-button">☰</button>
+                    <button onclick="window.location.href='menu.php'" class="header-button logo-button">
+                        <img src="../images/logo_omnesBNB_noir.png" alt="Logo OmnesBNB" class="logo-img">
+                        <h1>OmnesBnB</h1>
+                    </button>
+                    <button onclick="window.location.href='../connexion/login.php'" class="header-button">+</button>
+                </div>
+            </section>
 
-            <!-- Menu déroulant caché -->
-            <nav id="dropdownMenu" class="hidden-menu">
-                <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Chercher un logement</a></li>
-                    <li><a href="#">Mes réservations</a></li>
-                    <li><a href="#">Publier un logement</a></li>
-                    <li><a href="#">Mon Profil</a></li>
-                    <li><a href="#">Déconnexion</a></li>
-                </ul>
-            </nav>
+            <section>
+                <div class="choix-menu">
+                    <button onclick="window.location.href='../location.php'" class="button-choix">
+                        <img src="" alt="" class="">
+                        <p>Réservation</p>
+                    </button>
+                    <button onclick="window.location.href='../recherche_logement.php'" class="button-choix">
+                        <img src="" alt="" class="logo-choix-recherche">
+                        <p>Rechercher</p>
+                    </button>
+                    <button onclick="window.location.href='menu.php'" class="button-choix">
+                        <img src="../images/logo_omnesBNB_blanc.png" alt="Logo OmnesBnB" class="logo-choix-omnes">
+                        <p>Accueil</p>
+                    </button>
+                    <button onclick="window.location.href='../publier.php'" class="button-choix">
+                        <img src="" alt="" class="logo-choix-publier">
+                        <p>Publier</p>
+                    </button>
+                    <button onclick="window.location.href='../messagerie.php'" class="button-choix">
+                        <img src="../images/icon_message.png" alt="logo message" class="logo-choix-messagerie">
+                        <p>Message</p>
+                    </button>
+                </div>
+            </section>
+
 
         </header>
 

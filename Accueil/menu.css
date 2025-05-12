@@ -43,30 +43,76 @@
     }
 
 
-
-    .hidden-menu {
-        display: none;
-        background-color: #f2f2f2;
-        padding: 10px;
+    .choix-menu {
+        display: flex;
+        justify-content: space-around; /* Pour répartir les 5 blocs */
+        align-items: center;
+        padding: 10px 5px 10px 5px;
+        background-color: #f9f9f9;
     }
 
-    .hidden-menu ul {
-        list-style: none;
-        padding: 0;
+    .button-choix {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        transition: transform 0.3s ease; /* Animation douce du bouton complet */
+    }
+
+    .button-choix:hover {
+        transform: scale(1.05); /* Agrandit tout le bloc */
+    }
+
+    /*css pour le logo choix OmnesBnb */
+    .logo-choix-omnes {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+        background: #017179;
+        border: 1px solid #333;
+        margin-bottom: 5px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre pour donner du relief */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation douce image */
+    }
+
+    .button-choix:hover .logo-choix-omnes {
+        transform: scale(1.1); /* Agrandit un peu plus l'icône */
+        box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Accentue l'ombre au hover */
+    }
+
+    /*css pour le logo choix Messagerie */
+    .logo-choix-messagerie {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+        background: limegreen;
+        border: 1px solid #333;
+        margin-bottom: 5px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre pour donner du relief */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation douce image */
+    }
+
+    .button-choix:hover .logo-choix-messagerie {
+        transform: scale(1.1); /* Agrandit un peu plus l'icône */
+        box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Accentue l'ombre au hover */
+    }
+
+
+
+    .button-choix p {
         margin: 0;
+        font-size: 10px;
+        color: black;
+        transition: transform 0.3s ease; /* Animation douce texte */
     }
 
-    .hidden-menu li {
-        margin: 10px 0;
-    }
-
-    .hidden-menu a {
-        text-decoration: none;
-        color: #333;
-    }
-
-    .visible {
-        display: block;
+    .button-choix:hover p {
+        transform: scale(1.1); /* Agrandit aussi le texte */
     }
 
     .recherche-logement {
@@ -90,7 +136,7 @@
         flex: 1;
         max-width: 415px;
         padding: 10px 10px 10px 10px;
-        border-radius: 12px;
+        border-radius: 30px;
         border: none;
         background-color: #eae6f2;  /* un violet/gris doux */
         box-shadow: 0 1px 4px rgba(0,0,0,0.1);
@@ -102,7 +148,7 @@
         padding: 10px 14px;
         font-size: 15px;
         border: none;
-        border-radius: 10px;
+        border-radius: 20px;
         background-color: #d9d9d9;
         cursor: pointer;
         box-shadow: 0 1px 4px rgba(0,0,0,0.1);
