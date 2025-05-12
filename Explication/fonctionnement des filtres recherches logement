@@ -1,0 +1,17 @@
+FONCTIONNEMENT DES FILTRES RECHERCHES LOGEMENTS
+
+-----------------------------------------------------------
+Code avec l'aide de ChatGPT et https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/input/date
+-----------------------------------------------------------
+
+Le type date est une spécification HTML5 qui indique au
+navigateur qu'il doit afficher un sélecteur de date adapté
+à l'appareil, différent au visuel.
+
+Lorsqu'on va sélectionner une date, un calendrier va s'afficher.
+Or, nulle part est marqué dans le code, car c'est intégré dans
+les navigateurs modernes.
+C'est le type d'input (type="date") qui déclenche automatiquement cette UI native.
+Pareil par exemple pour : type="time" , type="number".
+
+Donc il n'y a aucun code spécifique, style JS ou CSS, pour le visuel du calendrier.

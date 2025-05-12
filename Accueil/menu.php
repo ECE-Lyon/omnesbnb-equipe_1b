@@ -27,7 +27,10 @@ $messages = [
         <header>
             <div class="header-container">
                 <button id="menuToggle" class="header-button">☰</button>
-                <button onclick="window.location.href='menu.php'" class="header-button"><h1>OmnesBnB</h1></button>
+                <button onclick="window.location.href='menu.php'" class="header-button logo-button">
+                    <img src="../images/logo_omnesBNB_noir.png" alt="Logo OmnesBNB" class="logo-img">
+                    <h1>OmnesBnB</h1>
+                </button>
                 <button onclick="window.location.href='../connexion/login.php'" class="header-button">+</button>
             </div>
 
@@ -35,44 +38,57 @@ $messages = [
             <nav id="dropdownMenu" class="hidden-menu">
                 <ul>
                     <li><a href="#">Accueil</a></li>
+                    <li><a href="#">Chercher un logement</a></li>
                     <li><a href="#">Mes réservations</a></li>
-                    <li><a href="#">Profil</a></li>
+                    <li><a href="#">Publier un logement</a></li>
+                    <li><a href="#">Mon Profil</a></li>
                     <li><a href="#">Déconnexion</a></li>
                 </ul>
             </nav>
 
         </header>
 
+
         <main>
+            <section class="recherche-logement">
 
-            <main>
-                <section class="recherche-logement">
+                <div class="search-block">
+
+                    <!-- Barre de recherche -->
                     <div class="search-container">
-
-                        <!-- Bouton de filtres -->
-                        <button class="filter-btn" onclick="toggleFilters()">☰</button>
-
-                        <!-- Champ de destination -->
-                        <input type="text" id="searchInput" onkeyup="rechercheLogement()" placeholder="Destination">
-
-                        <!-- Bouton rechercher -->
-                        <button class="search-btn" onclick="rechercheLogement()">Rechercher 🔍</button>
+                        <button class="filtre-btn" onclick="toggleFilters()">☰</button>
+                        <input type="text" id="searchInput" placeholder="Destination">
+                        <button class="search-btn" onclick="window.location.href='../recherche_logement.php'">🔍</button>
                     </div>
 
-                    <!-- Filtres déroulants -->
-                    <div id="filters" class="filters hidden">
-                        <label for="start-date">Date de début :</label>
-                        <input type="date" id="start-date">
+                    <!-- Filtres en dessous -->
+                    <div id="filtres" class="filtres hidden">
+                        <div class="filtre-group">
+                            <label for="start-date">Date de début :</label>
+                            <input type="date" id="start-date">
+                        </div>
 
-                        <label for="end-date">Date de fin :</label>
-                        <input type="date" id="end-date">
+                        <div class="filtre-group">
+                            <label for="end-date">Date de fin :</label>
+                            <input type="date" id="end-date">
+                        </div>
 
-                        <label for="voyageurs">Voyageurs :</label>
-                        <input type="number" id="voyageurs" min="1" value="1">
+                        <div class="filtre-group">
+                            <label for="voyageurs">Voyageurs :</label>
+                            <input type="number" id="voyageurs" min="1" value="1">
+                        </div>
                     </div>
-                </section>
-            </main>
 
+                </div>
+            </section>
+
+            <section class="choix-utilisateur">
+
+            </section>
+
+            <section class="info-omnes">
+
+            </section>
 
         </main>
 
@@ -80,11 +96,5 @@ $messages = [
 
         </footer>
 
-        <script>
-            function toggleFilters() {
-                const filterSection = document.getElementById("filters");
-                filterSection.classList.toggle("hidden");
-            }
-        </script>
     </body>
 </html>
