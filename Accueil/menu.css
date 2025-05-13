@@ -1,0 +1,255 @@
+@media screen and (min-width: 428px) /*représente un iphone 12-13 Pro max*/{
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: white;
+        color: black;
+    }
+
+    .header-button {
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: black;
+        cursor: pointer;
+    }
+
+    /* Partie css du titre+logo OmnesBNB*/
+
+    .logo-button {
+        display: flex;
+        flex-direction: column; /* Met l'image au-dessus du texte */
+        align-items: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .logo-img {
+        width: 70px; /* Ajuste selon tes besoins */
+        height: auto;
+    }
+
+    .logo-button h1 {
+        font-size: 30px;
+        margin: 0;
+    }
+
+
+    .choix-menu {
+        display: flex;
+        justify-content: space-around; /* Pour répartir les 5 blocs */
+        align-items: center;
+        padding: 10px 5px 10px 5px;
+        background-color: #f9f9f9;
+    }
+
+    .button-choix {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: none;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        transition: transform 0.3s ease; /* Animation douce du bouton complet */
+    }
+
+    .button-choix:hover {
+        transform: scale(1.05); /* Agrandit tout le bloc */
+    }
+
+    /*css pour le logo choix OmnesBnb */
+    .logo-choix-omnes {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+        background: #017179;
+        border: 1px solid #333;
+        margin-bottom: 5px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre pour donner du relief */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation douce image */
+    }
+
+    .button-choix:hover .logo-choix-omnes {
+        transform: scale(1.1); /* Agrandit un peu plus l'icône */
+        box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Accentue l'ombre au hover */
+    }
+
+    /*css pour le logo choix Messagerie */
+    .logo-choix-messagerie {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+        background: limegreen;
+        border: 1px solid #333;
+        margin-bottom: 5px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre pour donner du relief */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation douce image */
+    }
+
+    .button-choix:hover .logo-choix-messagerie {
+        transform: scale(1.1); /* Agrandit un peu plus l'icône */
+        box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Accentue l'ombre au hover */
+    }
+
+    /*css pour le logo choix Publier */
+    .logo-choix-publier {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+        background: cornflowerblue;
+        border: 1px solid #333;
+        margin-bottom: 5px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre pour donner du relief */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation douce image */
+    }
+
+    .button-choix:hover .logo-choix-publier {
+        transform: scale(1.1); /* Agrandit un peu plus l'icône */
+        box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Accentue l'ombre au hover */
+    }
+
+    /*css pour le logo choix Réservation */
+    .logo-choix-reservation {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+        background: rosybrown;
+        border: 1px solid #333;
+        margin-bottom: 5px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre pour donner du relief */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation douce image */
+    }
+
+    .button-choix:hover .logo-choix-reservation {
+        transform: scale(1.1); /* Agrandit un peu plus l'icône */
+        box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Accentue l'ombre au hover */
+    }
+
+    /*css pour le logo choix Recherche */
+    .logo-choix-recherche {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+        background: brown;
+        border: 1px solid #333;
+        margin-bottom: 5px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre pour donner du relief */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation douce image */
+    }
+
+    .button-choix:hover .logo-choix-recherche {
+        transform: scale(1.1); /* Agrandit un peu plus l'icône */
+        box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Accentue l'ombre au hover */
+    }
+
+    .button-choix p {
+        margin: 0;
+        font-size: 10px;
+        color: black;
+        transition: transform 0.3s ease; /* Animation douce texte */
+    }
+
+    .button-choix:hover p {
+        transform: scale(1.1); /* Agrandit aussi le texte */
+    }
+
+    .recherche-logement {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+
+    }
+
+    .search-block {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 415px;
+    }
+
+    .search-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex: 1;
+        max-width: 415px;
+        padding: 10px 10px 10px 10px;
+        border-radius: 30px;
+        border: none;
+        background-color: #eae6f2;  /* un violet/gris doux */
+        box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+
+
+    .filtre-btn, .search-container input[type="text"], .search-btn {
+        padding: 10px 14px;
+        font-size: 15px;
+        border: none;
+        border-radius: 20px;
+        background-color: #d9d9d9;
+        cursor: pointer;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    .filter-btn {
+        width: 40px;
+    }
+
+    .search-container input[type="text"] {
+        width: 265px;
+    }
+
+    .search-btn {
+        width: 40px;
+        padding: 10px 10px;
+    }
+    /* Filtres cachés par défaut */
+    .filtres {
+        display: flex;
+        flex-direction: row; /* Affichage horizontal */
+        justify-content: space-between; /* Espace entre les blocs */
+        gap: 10px;
+        padding: 10px 20px;
+        background-color: #f3f3f3;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+
+    .filtres.hidden {
+        display: none;
+    }
+
+    .filtre-group {
+        display: flex;
+        flex-direction: column; /* Garde le label au-dessus de l'input */
+        flex: 1;
+    }
+
+    .filtre-group label {
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+
+    .filtre-group input {
+        padding: 6px 5px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        width: 90%;
+    }
+}
+

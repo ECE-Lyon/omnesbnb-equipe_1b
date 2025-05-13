@@ -7,7 +7,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>Bienvenue sur OmnesBnB</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="connexion/connexion.css">
 </head>
 <body>
 <h1>Bienvenue sur OmnesBnB</h1>

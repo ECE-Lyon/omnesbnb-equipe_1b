@@ -15,6 +15,6 @@ if ($utilisateur) {
     exit();
 } else {
     $_SESSION['erreur'] = "Identifiants incorrects.";
-    header("Location: index.php");
+    header("Location: login.php");
     exit();
 }

@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Connexion - OmnesBnB</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="connexion.css">
 </head>
 <body>
 <h1>Connexion à OmnesBnB</h1>
