@@ -102,7 +102,59 @@
         box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Accentue l'ombre au hover */
     }
 
+    /*css pour le logo choix Publier */
+    .logo-choix-publier {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+        background: cornflowerblue;
+        border: 1px solid #333;
+        margin-bottom: 5px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre pour donner du relief */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation douce image */
+    }
 
+    .button-choix:hover .logo-choix-publier {
+        transform: scale(1.1); /* Agrandit un peu plus l'icône */
+        box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Accentue l'ombre au hover */
+    }
+
+    /*css pour le logo choix Réservation */
+    .logo-choix-reservation {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+        background: rosybrown;
+        border: 1px solid #333;
+        margin-bottom: 5px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre pour donner du relief */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation douce image */
+    }
+
+    .button-choix:hover .logo-choix-reservation {
+        transform: scale(1.1); /* Agrandit un peu plus l'icône */
+        box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Accentue l'ombre au hover */
+    }
+
+    /*css pour le logo choix Recherche */
+    .logo-choix-recherche {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+        background: brown;
+        border: 1px solid #333;
+        margin-bottom: 5px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre pour donner du relief */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation douce image */
+    }
+
+    .button-choix:hover .logo-choix-recherche {
+        transform: scale(1.1); /* Agrandit un peu plus l'icône */
+        box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Accentue l'ombre au hover */
+    }
 
     .button-choix p {
         margin: 0;

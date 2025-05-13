@@ -36,33 +36,32 @@ $messages = [
                 </div>
             </section>
 
-            <section>
-                <div class="choix-menu">
-                    <button onclick="window.location.href='../location.php'" class="button-choix">
-                        <img src="" alt="" class="">
-                        <p>Réservation</p>
-                    </button>
-                    <button onclick="window.location.href='../recherche_logement.php'" class="button-choix">
-                        <img src="" alt="" class="logo-choix-recherche">
-                        <p>Rechercher</p>
-                    </button>
-                    <button onclick="window.location.href='menu.php'" class="button-choix">
-                        <img src="../images/logo_omnesBNB_blanc.png" alt="Logo OmnesBnB" class="logo-choix-omnes">
-                        <p>Accueil</p>
-                    </button>
-                    <button onclick="window.location.href='../publier.php'" class="button-choix">
-                        <img src="" alt="" class="logo-choix-publier">
-                        <p>Publier</p>
-                    </button>
-                    <button onclick="window.location.href='../messagerie.php'" class="button-choix">
-                        <img src="../images/icon_message.png" alt="logo message" class="logo-choix-messagerie">
-                        <p>Message</p>
-                    </button>
-                </div>
-            </section>
-
-
         </header>
+
+        <nav>
+            <div class="choix-menu">
+                <button onclick="window.location.href='../location.php'" class="button-choix">
+                    <img src="../images/icon_reservation.png" alt="logo réservation" class="logo-choix-reservation">
+                    <p>Réservation</p>
+                </button>
+                <button onclick="window.location.href='../recherche_logement.php'" class="button-choix">
+                    <img src="../images/icon_recherche.png" alt="logo recherche" class="logo-choix-recherche">
+                    <p>Rechercher</p>
+                </button>
+                <button onclick="window.location.href='menu.php'" class="button-choix">
+                    <img src="../images/logo_omnesBNB_blanc.png" alt="Logo OmnesBnB" class="logo-choix-omnes">
+                    <p>Accueil</p>
+                </button>
+                <button onclick="window.location.href='../publier.php'" class="button-choix">
+                    <img src="../images/icon_publier.png" alt="logo publier" class="logo-choix-publier">
+                    <p>Publier</p>
+                </button>
+                <button onclick="window.location.href='../messagerie.php'" class="button-choix">
+                    <img src="../images/icon_message.png" alt="logo message" class="logo-choix-messagerie">
+                    <p>Message</p>
+                </button>
+            </div>
+        </nav>
 
 
         <main>
