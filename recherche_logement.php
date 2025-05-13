@@ -26,8 +26,8 @@ $messages = [
         <header>
             <div class="header-container">
                 <button id="menuToggle" class="header-button">☰</button>
-                <button onclick="window.location.href='Accueil/index.php'" class="header-button"><h1>OmnesBnB</h1></button>
-                <button onclick="window.location.href='connexion/login.php'" class="header-button">+</button>
+                <button onclick="window.location.href='index.php'" class="header-button"><h1>OmnesBnB</h1></button>
+                <button onclick="window.location.href='login.php'" class="header-button">+</button>
             </div>
 
             <!-- Menu déroulant caché -->
