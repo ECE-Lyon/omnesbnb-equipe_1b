@@ -28,7 +28,7 @@ $messages = [
             <section>
                 <div class="header-container">
                     <button id="menuToggle" class="header-button">☰</button>
-                    <button onclick="window.location.href='menu.php'" class="header-button logo-button">
+                    <button onclick="window.location.href='index.php'" class="header-button logo-button">
                         <img src="../images/logo_omnesBNB_noir.png" alt="Logo OmnesBNB" class="logo-img">
                         <h1>OmnesBnB</h1>
                     </button>
@@ -48,7 +48,7 @@ $messages = [
                     <img src="../images/icon_recherche.png" alt="logo recherche" class="logo-choix-recherche">
                     <p>Rechercher</p>
                 </button>
-                <button onclick="window.location.href='menu.php'" class="button-choix">
+                <button onclick="window.location.href='index.php'" class="button-choix">
                     <img src="../images/logo_omnesBNB_blanc.png" alt="Logo OmnesBnB" class="logo-choix-omnes">
                     <p>Accueil</p>
                 </button>
