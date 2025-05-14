@@ -25,6 +25,33 @@ $langues_dispo = [
     ]
 ];
 
+$annonces = [
+    [
+        "id" => 1,
+        "img" => "images_annonce/annonce1.jpeg",
+        "titre" => "Petite villa à Londres",
+        "lieu" => "Londres, Angleterre",
+        "personnes" => 4,
+        "prix" => 120
+    ],
+    [
+        "id" => 2,
+        "img" => "images_annonce/annonce2.jpeg",
+        "titre" => "Villa avec piscine",
+        "lieu" => "Nice, France",
+        "personnes" => 8,
+        "prix" => 350
+    ],
+    [
+        "id" => 3,
+        "img" => "images_annonce/annonce3.jpeg",
+        "titre" => "Appartement vu Vieux Lyon",
+        "lieu" => "Lyon, France",
+        "personnes" => 2,
+        "prix" => 35
+]
+];
+
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +61,8 @@ $langues_dispo = [
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>OmnesBnB/menu</title>
         <link rel="stylesheet" href="menu.css">
+        <link rel="stylesheet" href="rechercher_logement.css">
+        <link rel="stylesheet" href="annonce.css">
         <script type="text/javascript" src="recherche_logement.js"></script>
         <script type="text/javascript" src="langue_accordeon.js"><</script>
     </head>
@@ -139,7 +168,21 @@ $langues_dispo = [
                 </div>
             </section>
 
-            <section class="choix-utilisateur">
+            <section class="logement-recommander">
+                <p>Logements recommandés de la semaine 🏆 </p>
+                <div class="bloc-recommander">
+                    <?php foreach ($annonces as $annonce): ?>
+                        <button onclick="window.location.href='detail_annonce.php?id=<?= $annonce['id'] ?>'" class="annonce-bloc">
+                            <img src="<?= $annonce['img'] ?>" alt="<?= $annonce['titre'] ?>" class="annonce-image">
+                            <div class="annonce-details">
+                                <h3 class="annonce-titre"><?= $annonce['titre'] ?></h3>
+                                <p class="annonce-lieu"><?= $annonce['lieu'] ?></p>
+                                <p class="annonce-personnes">👥 <?= $annonce['personnes'] ?> personnes</p>
+                                <p class="annonce-prix"><?= $annonce['prix'] ?>€ / nuit</p>
+                            </div>
+                        </button>
+                    <?php endforeach; ?>
+                </div>
 
             </section>
 

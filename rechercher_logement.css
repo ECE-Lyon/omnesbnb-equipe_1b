@@ -1,0 +1,92 @@
+@media screen and (min-width: 375px){
+    .recherche-logement {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+
+    }
+
+    .search-block {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .search-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex: 1;
+        max-width: 415px;
+        padding: 10px 10px 10px 10px;
+        border-radius: 30px;
+        border: none;
+        background-color: #eae6f2;  /* un violet/gris doux */
+        box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+
+
+    .filtre-btn, .search-container input[type="text"], .search-btn {
+        padding: 10px 14px;
+        font-size: 15px;
+        border: none;
+        border-radius: 20px;
+        background-color: #d9d9d9;
+        cursor: pointer;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    .filter-btn {
+        width: 40px;
+    }
+
+    .search-container input[type="text"] {
+        width: 265px;
+    }
+
+    .search-btn {
+        width: 40px;
+        padding: 10px 10px;
+    }
+    /* Filtres cachés par défaut */
+    .filtres {
+        display: flex;
+        flex-direction: row; /* Affichage horizontal */
+        justify-content: space-between; /* Espace entre les blocs */
+        gap: 5px;
+        padding: 10px 5px;
+        background-color: #f3f3f3;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+
+    .filtres.hidden {
+        display: none;
+    }
+
+    .filtre-group {
+        display: flex;
+        flex-direction: column; /* Garde le label au-dessus de l'input */
+        flex: 1;
+    }
+
+    .filtre-group label {
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+
+    .filtre-group input {
+        padding: 6px 5px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 428px) /*représente un iphone 12-13 Pro max*/{
+    .search-block {
+        max-width: 415px;
+    }
+}
