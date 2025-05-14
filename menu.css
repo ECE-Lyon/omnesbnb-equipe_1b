@@ -1,4 +1,4 @@
-@media screen and (min-width: 428px) /*représente un iphone 12-13 Pro max*/{
+@media screen and (min-width: 375px) /*représente un iphone 11 Pro */{
     body {
         margin: 0;
         font-family: Arial, sans-serif;
@@ -178,7 +178,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        max-width: 415px;
+        max-width: 360px;
     }
 
     .search-container {
@@ -250,6 +250,151 @@
         border-radius: 8px;
         border: 1px solid #ccc;
         width: 90%;
+    }
+
+    .langue-dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .select-langue {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+    }
+
+
+    /*Partie choix langue*/
+
+    .langue-accordeon {
+        width: 40px;
+        height: 40px;
+        background-color: lightgray;
+        border-radius: 30px;
+    }
+
+    .langue-icone {
+        width: 30px;
+        height: 30px;
+
+    }
+
+    .langues-options {
+        position: absolute;
+        top: 35px;
+        left: 0;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        z-index: 10;
+        padding: 5px;
+    }
+
+    .langues-options a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 5px 10px;
+        text-decoration: none;
+        color: black;
+    }
+
+    .langues-options a:hover {
+        background-color: #f0f0f0;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+
+    /*Partie Info OmnesBnB*/
+
+    .info-omnes {
+        background-color: darkseagreen;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+        padding: 20px;
+        margin: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .info-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease-out;
+    }
+
+    .info-block.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .info-block.reverse {
+        flex-direction: column;
+    }
+
+    .info-text {
+        font-size: 18px;
+        color: white;
+        max-width: 300px;
+        text-align: center;
+    }
+
+    .info-img img {
+        width: 150px;
+        height: auto;
+    }
+
+
+}
+
+
+
+
+@media screen and (min-width: 428px) /*représente un iphone 12-13 Pro max*/{
+    .search-block {
+        max-width: 415px;
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    .info-block {
+        text-align: center;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0px 100px;
+    }
+
+    .info-block.reverse {
+        flex-direction: row-reverse;
+    }
+
+    .info-text {
+        font-size: 20px;
+        max-width: 400px;
+    }
+
+    .info-img img {
+        width: 200px;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .info-block {
+        padding: 0px 200px;
     }
 }
 

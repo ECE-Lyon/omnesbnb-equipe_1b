@@ -1,12 +1,26 @@
 <?php
 session_start();
 
+// Changement de langue si l'utilisateur a cliqué
+if (isset($_GET['lang'])) {
+    $langue = $_GET['lang'];
+    setcookie('lang', $langue, time() + (3600 * 24 * 30), "/"); // 30 jours
+    header("Location: " . strtok($_SERVER["REQUEST_URI"], '?'));
+    exit();
+}
+
 // Définition de la langue par défaut
 $langue = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : 'fr';
 
 // Définition des messages
-$messages = [
+$langues_dispo = [
     'fr' => [
+
+    ],
+    'en' => [
+
+    ],
+    'de' => [
 
     ]
 ];
@@ -21,13 +35,41 @@ $messages = [
         <title>OmnesBnB/menu</title>
         <link rel="stylesheet" href="menu.css">
         <script type="text/javascript" src="recherche_logement.js"></script>
+        <script type="text/javascript" src="langue_accordeon.js"><</script>
     </head>
+
+    <script>
+        const selectLangueBtn = document.getElementById('selectlangue');
+        const languesOptions = document.getElementById('langues-options');
+
+        selectLangueBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            languesOptions.classList.toggle('hidden');
+        });
+
+        document.addEventListener('click', function () {
+            languesOptions.classList.add('hidden');
+        });
+    </script>
 
     <body>
         <header>
             <section>
                 <div class="header-container">
-                    <button id="menuToggle" class="header-button">☰</button>
+                    <div class="langue-accordeon">
+                        <button id="selectlangue" class="select-langue">
+                            <img src="images/<?php echo $langue; ?>.png" alt="<?php echo $langue; ?>" class="langue-icone">
+                        </button>
+                        <div id="langues-options" class="langues-options hidden">
+                            <?php foreach ($langues_dispo as $code => $nom):
+                                if ($code != $langue): ?>
+                                    <a href="?lang=<?php echo $code; ?>">
+                                        <img src="images/<?php echo $code; ?>.png" alt="<?php echo $nom; ?>" class="langue-icone">
+                                        <?php echo $nom; ?>
+                                    </a>
+                                <?php endif; endforeach; ?>
+                        </div>
+                    </div>
                     <button onclick="window.location.href='index.php'" class="header-button logo-button">
                         <img src="images/logo_omnesBNB_noir.png" alt="Logo OmnesBNB" class="logo-img">
                         <h1>OmnesBnB</h1>
@@ -52,7 +94,7 @@ $messages = [
                     <img src="images/logo_omnesBNB_blanc.png" alt="Logo OmnesBnB" class="logo-choix-omnes">
                     <p>Accueil</p>
                 </button>
-                <button onclick="window.location.href='../publier.php'" class="button-choix">
+                <button onclick="window.location.href='publier.php'" class="button-choix">
                     <img src="images/icon_publier.png" alt="logo publier" class="logo-choix-publier">
                     <p>Publier</p>
                 </button>
@@ -101,8 +143,31 @@ $messages = [
 
             </section>
 
-            <section class="info-omnes">
-
+            <section class="info-omnes hidden-on-load">
+                <div class="info-block">
+                    <div class="info-text">OmnesBnB c'est quoi ?</div>
+                    <div class="info-img">
+                        <img src="images/logo_omnesBNB_blanc.png" alt="Logo OmnesBnB">
+                    </div>
+                </div>
+                <div class="info-block reverse">
+                    <div class="info-text">Permet aux utilisateurs de découvrir le monde entier.</div>
+                    <div class="info-img">
+                        <img src="images/logo_planete.png" alt="Découvrir le monde">
+                    </div>
+                </div>
+                <div class="info-block">
+                    <div class="info-text">Publier votre logement en un claquement de doigt.</div>
+                    <div class="info-img">
+                        <img src="images/logo_logement_rapide.png" alt="Publication rapide">
+                    </div>
+                </div>
+                <div class="info-block reverse">
+                    <div class="info-text">Un mode de paiement sûr et rapide !</div>
+                    <div class="info-img">
+                        <img src="images/logo_paiement.png" alt="Paiement sécurisé">
+                    </div>
+                </div>
             </section>
 
         </main>
@@ -112,4 +177,26 @@ $messages = [
         </footer>
 
     </body>
+
+
+    <!-- Javascrpit pour l'animation des informations sur omnesBNB -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const blocks = document.querySelectorAll('.info-block');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.3 // Déclenche quand 30% du bloc est visible (tu peux essayer 0.1 ou 0.5 aussi)
+            });
+
+            blocks.forEach(block => observer.observe(block));
+        });
+    </script>
 </html>
