@@ -233,7 +233,7 @@
 
     .info-omnes {
         background-color: darkseagreen;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
         border-radius: 20px;
         padding: 20px;
         margin: 30px 20px;
@@ -274,8 +274,6 @@
         height: auto;
     }
 
-
-
     /* Section Logement recommander*/
 
     /* Séparation */
@@ -283,6 +281,34 @@
         border-top: 2px solid #ddd;
         margin-top: 20px;
         padding-top: 20px;
+    }
+
+    .logement-recommander .titre-recommander {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    /* Footer moderne et responsive */
+    footer {
+        background-color: #f5f5f5;
+        padding: 20px 10px;
+        margin-top: 40px;
+        position: relative;
+        text-align: center;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-content p {
+        margin: 0;
+        font-size: 12px;
+        color: #666;
     }
 
 }
@@ -315,11 +341,33 @@
     .info-img img {
         width: 200px;
     }
+
+    footer {
+        padding: 30px 20px;
+    }
+
+    .footer-content p {
+        font-size: 14px;
+    }
 }
 
 @media screen and (min-width: 1024px){
     .info-block {
         padding: 0px 200px;
+    }
+
+    .logement-recommander .titre-recommander {
+        font-size: 20px;
+        padding: 5px 250px;
+        text-align: left;
+    }
+
+    footer {
+        padding: 40px 20px;
+    }
+
+    .footer-content p {
+        font-size: 15px;
     }
 }
 

@@ -123,7 +123,7 @@ $annonces = [
                     <img src="images/logo_omnesBNB_blanc.png" alt="Logo OmnesBnB" class="logo-choix-omnes">
                     <p>Accueil</p>
                 </button>
-                <button onclick="window.location.href='publier.php'" class="button-choix">
+                <button onclick="window.location.href='publier_logement.php'" class="button-choix">
                     <img src="images/icon_publier.png" alt="logo publier" class="logo-choix-publier">
                     <p>Publier</p>
                 </button>
@@ -169,7 +169,7 @@ $annonces = [
             </section>
 
             <section class="logement-recommander">
-                <p>Logements recommandés de la semaine 🏆 </p>
+                <p class="titre-recommander">Logements recommandés de la semaine 🏆 </p>
                 <div class="bloc-recommander">
                     <?php foreach ($annonces as $annonce): ?>
                         <button onclick="window.location.href='detail_annonce.php?id=<?= $annonce['id'] ?>'" class="annonce-bloc">
@@ -216,7 +216,9 @@ $annonces = [
         </main>
 
         <footer>
-
+            <div class="footer-content">
+                <p>© 2025 OmnesBnB. Tous droits réservés.</p>
+            </div>
         </footer>
 
     </body>
