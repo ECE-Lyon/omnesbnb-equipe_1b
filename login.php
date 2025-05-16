@@ -4,10 +4,14 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Connexion - OmnesBnB</title>
     <link rel="stylesheet" href="connexion1.css">
 </head>
 <body>
+<!-- Crois en haut à gauche -->
+<a href="index.php" class="btn-back" aria-label="Retour">&times;</a>
+
 <h1>Connexion à OmnesBnB</h1>
 <br>
 

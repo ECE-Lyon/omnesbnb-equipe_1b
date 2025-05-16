@@ -94,3 +94,18 @@ form button:hover {
         font-size: 1.1rem;
     }
 }
+/* Bouton “Retour” */
+.btn-back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5rem;
+    color: var(--clr-black);
+    text-decoration: none;
+    line-height: 1;
+    padding: 4px;
+    transition: color 0.2s;
+}
+.btn-back:hover {
+    color: var(--clr-primary);
+}

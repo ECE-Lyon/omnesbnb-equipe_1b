@@ -2,10 +2,13 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Créer un compte - OmnesBnB</title>
     <link rel="stylesheet" href="inscription.css">
 </head>
 <body>
+<a href="login.php" class="btn-back" aria-label="Retour">&times;</a>
+
 <h1>Créer un compte</h1>
 <BR>
 

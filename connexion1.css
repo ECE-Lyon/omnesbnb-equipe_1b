@@ -6,17 +6,18 @@
     --clr-text: rgba(0, 0, 0, 0.87);
     --clr-muted: rgba(0, 0, 0, 0.59);
     --font-base: 'Inter', sans-serif;
-    --radius: 10px;
-    --gap: 16px;
+    --radius: 12px;        /* un poil plus arrondi */
+    --gap-mobile: 24px;    /* espacement plus grand sur mobile */
+    --padding-mobile: 16px;/* padding plus large sur mobile */
 }
 
 /* Reset & base */
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0; padding: 0;
     box-sizing: border-box;
 }
 body {
+    position: relative;        /* pour .btn-back absolu */
     font-family: var(--font-base);
     background: var(--clr-white);
     color: var(--clr-text);
@@ -25,14 +26,34 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    padding: 20px;
+    padding: var(--padding-mobile);
+}
+
+/* Bouton Retour */
+.btn-back {
+    position: absolute;
+    top: calc(env(safe-area-inset-top, 20px));
+    left: calc(env(safe-area-inset-left, 20px));
+    width: 48px; height: 48px;     /* champ augmenté à 48×48 */
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.75rem;           /* 28px */
+    color: var(--clr-black);
+    background: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    text-decoration: none;
+    z-index: 100;
+    transition: background 0.2s, color 0.2s;
+}
+.btn-back:hover {
+    background: rgba(255,255,255,1);
+    color: var(--clr-primary);
 }
 
 /* Titre principal */
 h1 {
-    font-size: 2rem;
+    font-size: 2.25rem;         /* ~36px sur mobile */
     font-weight: 500;
-    margin-bottom: 24px;
+    margin-bottom: var(--gap-mobile);
     text-align: center;
 }
 
@@ -40,7 +61,7 @@ h1 {
 form {
     display: flex;
     flex-direction: column;
-    gap: var(--gap);
+    gap: var(--gap-mobile);
     width: 100%;
     max-width: 360px;
 }
@@ -49,17 +70,22 @@ form {
 form input[type="text"],
 form input[type="password"] {
     width: 100%;
-    padding: 12px;
-    font-size: 1rem;
+    padding: var(--padding-mobile);
+    font-size: 1.125rem;        /* ~18px */
     border: 1px solid #CCC;
     border-radius: var(--radius);
     background: #FAFAFA;
+    transition: border-color 0.2s;
+}
+form input:focus {
+    border-color: var(--clr-primary);
+    outline: none;
 }
 
 /* Bouton principal */
 form button {
-    padding: 12px;
-    font-size: 1rem;
+    padding: var(--padding-mobile);
+    font-size: 1.125rem;        /* ~18px */
     font-weight: 600;
     color: var(--clr-white);
     background: var(--clr-primary);
@@ -75,8 +101,8 @@ form button:hover {
 /* Lien “Créer un compte” */
 p a {
     display: inline-block;
-    margin-top: 12px;
-    font-size: 0.9rem;
+    margin-top: 16px;
+    font-size: 1rem;
     color: var(--clr-primary);
     text-decoration: underline;
 }
@@ -85,23 +111,36 @@ p a {
 .erreur {
     margin-top: 16px;
     color: #D32F2F;
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-align: center;
 }
 
-/* Media query pour écrans plus larges */
+/* Desktop / Tablet (≥768px) */
 @media (min-width: 768px) {
     body {
         padding: 40px;
     }
     h1 {
         font-size: 2.5rem;
+        margin-bottom: 32px;
     }
     form {
         max-width: 400px;
         gap: 20px;
     }
+    form input,
     form button {
-        font-size: 1.1rem;
+        padding: 12px;
+        font-size: 1rem;
+    }
+    .btn-back {
+        top: 20px;
+        left: 20px;
+        width: auto;
+        height: auto;
+        padding: 4px;
+        background: transparent;
+        font-size: 1.2rem;
+        border-radius: 0;
     }
 }
