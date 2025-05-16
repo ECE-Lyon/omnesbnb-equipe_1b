@@ -1,0 +1,180 @@
+/* Variables globales */
+:root {
+    --clr-primary: #2D8D88;
+    --clr-white: #FFFFFF;
+    --clr-black: #000000;
+    --font-base: 'Inter', sans-serif;
+}
+
+/* Reset & base */
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: var(--font-base);
+    background: var(--clr-white);
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Container principal */
+.login-container {
+    width: 100%;
+    max-width: 750px;
+    padding: 20px;
+}
+
+/* Status bar */
+.status-bar {
+    width: 100%;
+    max-width: 750px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 18px;
+    position: relative;
+}
+.status-bar .time {
+    font-size: 16px;
+}
+.status-icons {
+    display: flex;
+    gap: 12px;
+}
+.status-icons .icon {
+    width: 24px; height: 24px;
+    background-size: contain;
+}
+.icon.wifi   { background-image: url('icons/wifi.svg'); }
+.icon.cell   { background-image: url('icons/cellular.svg'); }
+.icon.battery{ background-image: url('icons/battery.svg'); }
+
+/* Dynamic Island */
+.dynamic-island {
+    width: 240px; height: 70px;
+    background: var(--clr-black);
+    border-radius: 100px;
+    margin: 21px auto;
+}
+
+/* Titre */
+h1 {
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
+    margin: 30px 0;
+}
+
+/* Formulaire */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.login-form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.59);
+}
+.login-form input {
+    margin-top: 8px;
+    padding: 12px;
+    font-size: 18px;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+/* Liens secondaires */
+.links {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+}
+.links a {
+    color: rgba(0, 0, 0, 0.59);
+    text-decoration: underline;
+}
+
+/* Bouton principal */
+.btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+    background: var(--clr-primary);
+    color: var(--clr-white);
+    font-size: 24px;
+    font-weight: 600;
+    border: 1px solid #000;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.material-symbols-lock {
+    font-size: 24px;
+}
+
+/* Social login buttons */
+.social-login {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.btn-social {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 22px;
+    font-size: 16px;
+    border: 1px solid rgba(30, 36, 50, 0.23);
+    border-radius: 8px;
+    cursor: pointer;
+    background: #fff;
+}
+.btn-social img {
+    width: 24px; height: 24px;
+}
+
+/* Footer */
+.site-footer {
+    width: 100%;
+    max-width: 750px;
+    margin-top: 60px;
+    background: linear-gradient(90deg, #246969 59%, #fff 84%);
+    border-top: 1px solid #AEAAAA;
+    padding: 16px 18px;
+    position: relative;
+}
+.site-footer nav ul {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+}
+.site-footer nav a {
+    font-size: 10px;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+}
+.site-footer .logo {
+    position: absolute;
+    right: 18px;
+    top: 16px;
+}
+.site-footer .logo img {
+    width: 108px;
+    height: auto;
+}
+.footer-bar {
+    position: absolute;
+    left: 241px; /* ajuster si besoin */
+    bottom: 10px;
+    width: 268px; height: 10px;
+    background: #000;
+    border-radius: 100px;
+}
