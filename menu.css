@@ -1,4 +1,4 @@
-@media screen and (min-width: 428px) /*représente un iphone 12-13 Pro max*/{
+@media screen and (min-width: 375px) /*représente un iphone 11 Pro */{
     body {
         margin: 0;
         font-family: Arial, sans-serif;
@@ -167,89 +167,207 @@
         transform: scale(1.1); /* Agrandit aussi le texte */
     }
 
-    .recherche-logement {
-        display: flex;
-        justify-content: center;
-        margin: 20px 0;
+
+
+    .langue-dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .select-langue {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+    }
+
+
+    /*Partie choix langue*/
+
+    .langue-accordeon {
+        width: 40px;
+        height: 40px;
+        background-color: lightgray;
+        border-radius: 30px;
+    }
+
+    .langue-icone {
+        width: 30px;
+        height: 30px;
 
     }
 
-    .search-block {
+    .langues-options {
+        position: absolute;
+        top: 35px;
+        left: 0;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         display: flex;
         flex-direction: column;
-        width: 100%;
-        max-width: 415px;
+        z-index: 10;
+        padding: 5px;
     }
 
-    .search-container {
+    .langues-options a {
         display: flex;
         align-items: center;
         gap: 10px;
-        flex: 1;
-        max-width: 415px;
-        padding: 10px 10px 10px 10px;
-        border-radius: 30px;
-        border: none;
-        background-color: #eae6f2;  /* un violet/gris doux */
-        box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        padding: 5px 10px;
+        text-decoration: none;
+        color: black;
     }
 
-
-
-    .filtre-btn, .search-container input[type="text"], .search-btn {
-        padding: 10px 14px;
-        font-size: 15px;
-        border: none;
-        border-radius: 20px;
-        background-color: #d9d9d9;
-        cursor: pointer;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    .langues-options a:hover {
+        background-color: #f0f0f0;
     }
 
-    .filter-btn {
-        width: 40px;
-    }
-
-    .search-container input[type="text"] {
-        width: 265px;
-    }
-
-    .search-btn {
-        width: 40px;
-        padding: 10px 10px;
-    }
-    /* Filtres cachés par défaut */
-    .filtres {
-        display: flex;
-        flex-direction: row; /* Affichage horizontal */
-        justify-content: space-between; /* Espace entre les blocs */
-        gap: 10px;
-        padding: 10px 20px;
-        background-color: #f3f3f3;
-        border-radius: 10px;
-        margin-top: 10px;
-    }
-
-    .filtres.hidden {
+    .hidden {
         display: none;
     }
 
-    .filtre-group {
+
+    /*Partie Info OmnesBnB*/
+
+    .info-omnes {
+        background-color: darkseagreen;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+        padding: 20px;
+        margin: 30px 20px;
         display: flex;
-        flex-direction: column; /* Garde le label au-dessus de l'input */
-        flex: 1;
+        flex-direction: column;
+        gap: 40px;
     }
 
-    .filtre-group label {
+    .info-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease-out;
+    }
+
+    .info-block.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .info-block.reverse {
+        flex-direction: column;
+    }
+
+    .info-text {
+        font-size: 18px;
+        color: white;
+        max-width: 300px;
+        text-align: center;
+    }
+
+    .info-img img {
+        width: 150px;
+        height: auto;
+    }
+
+    /* Section Logement recommander*/
+
+    /* Séparation */
+    .logement-recommander {
+        border-top: 2px solid #ddd;
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+
+    .logement-recommander .titre-recommander {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    /* Footer moderne et responsive */
+    footer {
+        background-color: #f5f5f5;
+        padding: 20px 10px;
+        margin-top: 40px;
+        position: relative;
+        text-align: center;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-content p {
+        margin: 0;
+        font-size: 12px;
+        color: #666;
+    }
+
+}
+
+
+
+
+@media screen and (min-width: 428px) /*représente un iphone 12-13 Pro max*/{
+
+}
+
+
+@media screen and (min-width: 768px) {
+    .info-block {
+        text-align: center;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0px 100px;
+    }
+
+    .info-block.reverse {
+        flex-direction: row-reverse;
+    }
+
+    .info-text {
+        font-size: 20px;
+        max-width: 400px;
+    }
+
+    .info-img img {
+        width: 200px;
+    }
+
+    footer {
+        padding: 30px 20px;
+    }
+
+    .footer-content p {
         font-size: 14px;
-        margin-bottom: 4px;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .info-block {
+        padding: 0px 200px;
     }
 
-    .filtre-group input {
-        padding: 6px 5px;
-        border-radius: 8px;
-        border: 1px solid #ccc;
-        width: 90%;
+    .logement-recommander .titre-recommander {
+        font-size: 20px;
+        padding: 5px 250px;
+        text-align: left;
+    }
+
+    footer {
+        padding: 40px 20px;
+    }
+
+    .footer-content p {
+        font-size: 15px;
     }
 }
 

@@ -11,7 +11,7 @@ $utilisateur = $requete->fetch();
 
 if ($utilisateur) {
     $_SESSION['utilisateur'] = $utilisateur;
-    header("Location: omnes.php");
+    header("Location: index.php");
     exit();
 } else {
     $_SESSION['erreur'] = "Identifiants incorrects.";
