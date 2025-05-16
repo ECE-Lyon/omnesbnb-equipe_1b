@@ -9,7 +9,8 @@ $mdp = $_POST['mdp'];
 // Hacher le mot de passe avant de le stocker
 $mdp_hache = password_hash($mdp, PASSWORD_DEFAULT);
 
-$requete = $bdd->prepare("INSERT INTO utilisateurs (prenom, nom, email, mot_de_passe) VALUES (?, ?, ?, ?)");
+// Changement de la table utilisateurs à utilisateursTest
+$requete = $bdd->prepare("INSERT INTO utilisateursTest (prenom, nom, email, mot_de_passe) VALUES (?, ?, ?, ?)");
 $requete->execute([$prenom, $nom, $email, $mdp_hache]);
 
 header("Location: login.php");

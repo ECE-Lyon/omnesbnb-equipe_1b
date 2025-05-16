@@ -5,8 +5,8 @@ require_once("base_donnee.php");
 $email = $_POST['email'];
 $mdp = $_POST['mdp'];
 
-// Utiliser une requête qui récupère seulement le mot de passe haché
-$requete = $bdd->prepare("SELECT id, prenom, nom, email, mot_de_passe FROM utilisateurs WHERE email = ?");
+// Changement de la table utilisateurs à utilisateursTest
+$requete = $bdd->prepare("SELECT id, prenom, nom, email, mot_de_passe FROM utilisateursTest WHERE email = ?");
 $requete->execute([$email]);
 $utilisateur = $requete->fetch();
 
