@@ -8,17 +8,7 @@
 </head>
 <body>
 <!-- Status bar -->
-<header class="status-bar">
-    <div class="time">12:34</div>
-    <div class="status-icons">
-        <div class="icon wifi"></div>
-        <div class="icon cell"></div>
-        <div class="icon battery"></div>
-    </div>
 </header>
-
-<!-- Dynamic Island (si besoin) -->
-<div class="dynamic-island"></div>
 
 <!-- Main login content -->
 <main class="login-container">

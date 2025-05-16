@@ -47,6 +47,7 @@ form {
 
 /* Champs de saisie */
 form input[type="text"],
+form input[type="email"],
 form input[type="password"] {
     width: 100%;
     padding: 12px;
@@ -54,6 +55,11 @@ form input[type="password"] {
     border: 1px solid #CCC;
     border-radius: var(--radius);
     background: #FAFAFA;
+    transition: border-color 0.2s;
+}
+form input:focus {
+    border-color: var(--clr-primary);
+    outline: none;
 }
 
 /* Bouton principal */
@@ -70,23 +76,6 @@ form button {
 }
 form button:hover {
     background: #276E6A;
-}
-
-/* Lien “Créer un compte” */
-p a {
-    display: inline-block;
-    margin-top: 12px;
-    font-size: 0.9rem;
-    color: var(--clr-primary);
-    text-decoration: underline;
-}
-
-/* Message d’erreur */
-.erreur {
-    margin-top: 16px;
-    color: #D32F2F;
-    font-size: 0.9rem;
-    text-align: center;
 }
 
 /* Media query pour écrans plus larges */

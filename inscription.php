@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Créer un compte - OmnesBnB</title>
-    <link rel="stylesheet" href="connexion.css">
+    <link rel="stylesheet" href="inscription.css">
 </head>
 <body>
 <h1>Créer un compte</h1>
+<BR>
 
 <form action="verif_inscription.php" method="post">
     <input type="text" name="prenom" placeholder="Prénom" required><br>
