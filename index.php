@@ -63,8 +63,8 @@ $annonces = [
         <link rel="stylesheet" href="menu.css">
         <link rel="stylesheet" href="rechercher_logement.css">
         <link rel="stylesheet" href="annonce.css">
-        <script type="text/javascript" src="recherche_logement.js"></script>
-        <script type="text/javascript" src="langue_accordeon.js"><</script>
+        <script type="text/javascript" src="javascript/recherche_logement.js"></script>
+        <script type="text/javascript" src="javascript/langue_accordeon.js"><</script>
     </head>
 
     <script>

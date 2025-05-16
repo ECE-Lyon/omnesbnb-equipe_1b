@@ -1,13 +1,17 @@
 <?php
 require_once("base_donnee.php");
 
-$prenom = $_POST['prenom'];
-$nom = $_POST['nom'];
-$email = $_POST['email'];
+$prenom = htmlspecialchars($_POST['prenom']);
+$nom = htmlspecialchars($_POST['nom']);
+$email = htmlspecialchars($_POST['email']);
 $mdp = $_POST['mdp'];
 
+// Hacher le mot de passe avant de le stocker
+$mdp_hache = password_hash($mdp, PASSWORD_DEFAULT);
+
 $requete = $bdd->prepare("INSERT INTO utilisateurs (prenom, nom, email, mot_de_passe) VALUES (?, ?, ?, ?)");
-$requete->execute([$prenom, $nom, $email, $mdp]);
+$requete->execute([$prenom, $nom, $email, $mdp_hache]);
 
 header("Location: login.php");
 exit();
+?>

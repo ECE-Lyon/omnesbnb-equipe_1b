@@ -2,10 +2,12 @@
 session_start();
 
 // Vérification de la session utilisateur (doit être connecté)
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['utilisateur']['id'])) {
     header('Location: login.php');
     exit();
 }
+
+$user_id = $_SESSION['utilisateur']['id'];
 
 // Connexion BDD
 require_once 'base_donnee.php';
@@ -44,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $stmt = $bdd->prepare("INSERT INTO logements (id_utilisateur, titre, description, adresse, date_debut, date_fin, places, prix_par_personne, type_location, photo_principale) 
                                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 $stmt->execute([
-                    $_SESSION['user_id'],
+                    $user_id,
                     $titre,
                     $description,
                     $adresse,
