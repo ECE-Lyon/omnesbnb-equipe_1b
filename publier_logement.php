@@ -17,12 +17,14 @@ $message = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $titre = htmlspecialchars($_POST['titre']);
     $description = htmlspecialchars($_POST['description']);
+    $pays = htmlspecialchars($_POST['pays']);
+    $ville = htmlspecialchars($_POST['ville']);
     $adresse = htmlspecialchars($_POST['adresse']);
-    $date_debut = $_POST['date_debut'];
-    $date_fin = $_POST['date_fin'];
     $places = intval($_POST['places']);
+    $surfaces = floatval($_POST['surfaces']);
     $prix = floatval($_POST['prix']);
     $type = $_POST['type_location'];
+    $statut = $_POST['statut'];
 
     // Gestion upload
     if (isset($_FILES['photo']) && $_FILES['photo']['error'] == 0) {
@@ -43,18 +45,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if (move_uploaded_file($photo['tmp_name'], $target_file)) {
                 // Insertion en BDD
-                $stmt = $bdd->prepare("INSERT INTO logements (id_utilisateur, titre, description, adresse, date_debut, date_fin, places, prix_par_personne, type_location, photo_principale) 
-                                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt = $bdd->prepare("INSERT INTO logements (id_utilisateur, titre, description, pays, ville, adresse, places, surfaces, prix_par_personne, type_location, statut, photo_principale) 
+                                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
                 $stmt->execute([
                     $user_id,
                     $titre,
                     $description,
+                    $pays,
+                    $ville,
                     $adresse,
-                    $date_debut,
-                    $date_fin,
                     $places,
+                    $surfaces,
                     $prix,
                     $type,
+                    $statut,
                     $target_file
                 ]);
 
@@ -78,29 +82,82 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <title>Publier un logement</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="publier_logement.css">
+        <script src="javascript/popup_publier.js" defer></script>
     </head>
     <body>
 
-        <h2 style="text-align:center;">Publier un logement</h2>
+        <header>
+            <section>
+                <div class="header-container">
+                    <div class="langue-accordeon">
+                        <button id="selectlangue" class="select-langue">
+                            <img src="images/fr.png" alt="fr" class="langue-icone">
+                        </button>
+                    </div>
+                    <button onclick="window.location.href='index.php'" class="header-button logo-button">
+                        <img src="images/logo_omnesBNB_noir.png" alt="Logo OmnesBNB" class="logo-img">
+                        <h1>OmnesBnB</h1>
+                    </button>
+                    <button onclick="window.location.href='login.php'" class="header-button">+</button>
+                </div>
+            </section>
+
+        </header>
+
+        <nav>
+            <div class="choix-menu">
+                <button onclick="window.location.href='../location.php'" class="button-choix">
+                    <img src="images/icon_reservation.png" alt="logo réservation" class="logo-choix-reservation">
+                    <p>Réservation</p>
+                </button>
+                <button onclick="window.location.href='recherche_logement.php'" class="button-choix">
+                    <img src="images/icon_recherche.png" alt="logo recherche" class="logo-choix-recherche">
+                    <p>Rechercher</p>
+                </button>
+                <button onclick="window.location.href='index.php'" class="button-choix">
+                    <img src="images/logo_omnesBNB_blanc.png" alt="Logo OmnesBnB" class="logo-choix-omnes">
+                    <p>Accueil</p>
+                </button>
+                <button onclick="window.location.href='publier_logement.php'" class="button-choix">
+                    <img src="images/icon_publier.png" alt="logo publier" class="logo-choix-publier">
+                    <p>Publier</p>
+                </button>
+                <button onclick="window.location.href='messagerie.php'" class="button-choix">
+                    <img src="images/icon_message.png" alt="logo message" class="logo-choix-messagerie">
+                    <p>Message</p>
+                </button>
+            </div>
+        </nav>
+
+        <h2>Publier un logement</h2>
 
         <form method="POST" enctype="multipart/form-data">
             <input type="text" name="titre" placeholder="Titre du logement" required>
             <textarea name="description" placeholder="Description détaillée" required></textarea>
+            <input type="text" name="pays" placeholder="Nom du pays" required>
+            <input type="text" name="ville" placeholder="Nom de la ville" required>
             <input type="text" name="adresse" placeholder="Adresse complète" required>
-            <input type="date" name="date_debut" required>
-            <input type="date" name="date_fin" required>
             <input type="number" name="places" min="1" placeholder="Nombre de places" required>
-            <input type="number" name="prix" step="0.01" placeholder="Prix par personne (€)" required>
+            <input type="number" name="prix" min="0" step="5" placeholder="Prix par personne (€)" required>
+            <input type="number" name="surfaces" step="0.5" placeholder="Surfaces (en m^2)" required>
             <select name="type_location" required>
                 <option value="logement entier">Logement entier</option>
                 <option value="colocation">Colocation</option>
             </select>
+            <select name="statut" required>
+                <option value="disponible">disponible</option>
+                <option value="réserver">réserver</option>
+                <option value="indisponible">indisponible</option>
+            </select>
             <input type="file" name="photo" accept="image/*" required>
-            <button type="submit">Publier</button>
+            <button class="publier" type="submit">Publier</button>
         </form>
 
-        <?php if ($message) : ?>
-        <div class="message"><?= $message ?></div>
+        <?php if ($message): ?>
+            <script>
+                const message = <?= json_encode($message); ?>;
+                localStorage.setItem('popupMessage', message);
+            </script>
         <?php endif; ?>
 
     </body>
