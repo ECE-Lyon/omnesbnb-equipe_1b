@@ -202,8 +202,9 @@ $langue = isset($_SESSION['langue']) ? $_SESSION['langue'] : 'fr';
                     <?php echo htmlspecialchars($logement['prenom'] . ' ' . $logement['nom']); ?>
                 </p>
                 <?php if (!$est_proprietaire): ?>
-                    <button class="contact-btn" onclick="contacterProprietaire(<?php echo $logement['id_proprietaire']; ?>)">
-                        <i class="fas fa-envelope"></i> Contacter
+                    <button class="contact-btn" onclick="window.location.href = 'messagerie.php'">
+                        <i class="fas fa-envelope"></i>
+                        Contacter (<?php echo htmlspecialchars($logement['email']); ?>)
                     </button>
                 <?php endif; ?>
             </div>

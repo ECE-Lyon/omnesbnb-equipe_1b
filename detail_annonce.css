@@ -106,13 +106,8 @@
     border: 2px solid transparent;
 }
 
-.thumbnails img:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
-}
-
 .thumbnails img.active {
-    border-color: #ff385c;
+    border-color: #017179;
 }
 
 /* Contenu principal */
@@ -247,7 +242,7 @@
 }
 
 #booking-form input {
-    width: 100%;
+    width: 95%;
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -277,7 +272,7 @@
 }
 
 .reserver-btn {
-    background-color: #ff385c;
+    background-color: darkseagreen;
     color: white;
     border: none;
     border-radius: 8px;
@@ -290,7 +285,7 @@
 }
 
 .reserver-btn:hover {
-    background-color: #e31c5f;
+    background-color: #017179;
 }
 
 .login-prompt, .owner-notice {
