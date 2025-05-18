@@ -1,9 +1,10 @@
 <?php
 try {
-    $host = 'fdb1027.your-hosting.net';
-    $nom_base = '4620382_omnesbnb';
-    $utilisateur = '4620382_omnesbnb';
-    $mot_de_passe = '%x0duQ@@90Z/sop-';
+    // Paramètres de connexion pour un environnement local (ex: XAMPP, WAMP)
+    $host = 'localhost';
+    $nom_base = 'omnesbnb'; // même nom que ta base importée localement
+    $utilisateur = 'root'; // utilisateur local par défaut
+    $mot_de_passe = ''; // mot de passe vide par défaut
 
     $bdd = new PDO(
         'mysql:host=' . $host . ';dbname=' . $nom_base . ';charset=utf8',
