@@ -1,30 +1,36 @@
 <?php
 session_start();
-require_once("base_donnee.php");
+require_once 'base_donnee.php';
 
-$email = $_POST['email'];
-$mdp = $_POST['mdp'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'] ?? '';
+    $motdepasse = $_POST['mdp'] ?? ''; // ✅ bon nom du champ
 
-// Changement de la table utilisateurs à utilisateursTest
-$requete = $bdd->prepare("SELECT id, prenom, nom, email, mot_de_passe FROM utilisateursTest WHERE email = ?");
-$requete->execute([$email]);
-$utilisateur = $requete->fetch();
+    if (empty($email) || empty($motdepasse)) {
+        header('Location: login.php?erreur=champs_vides');
+        exit();
+    }
 
-// Vérifier si l'utilisateur existe et si le mot de passe correspond
-if ($utilisateur && password_verify($mdp, $utilisateur['mot_de_passe'])) {
-    // Ne pas stocker le mot de passe dans la session
-    $_SESSION['utilisateur'] = [
-        'id' => $utilisateur['id'],
-        'prenom' => $utilisateur['prenom'],
-        'nom' => $utilisateur['nom'],
-        'email' => $utilisateur['email']
-    ];
-    $_SESSION['user_id'] = $utilisateur['id'];
-    header("Location: index.php");
-    exit();
+    // ✅ Utilisation de la bonne table
+    $stmt = $bdd->prepare("SELECT * FROM utilisateursTest WHERE email = ?");
+    $stmt->execute([$email]);
+    $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($utilisateur && password_verify($motdepasse, $utilisateur['mot_de_passe'])) {
+        $_SESSION['id'] = $utilisateur['id'];
+
+        if (isset($_GET['redirect']) && !empty($_GET['redirect'])) {
+            header('Location: ' . $_GET['redirect']);
+        } else {
+            header('Location: index.php');
+        }
+        exit();
+    } else {
+        $redirect = isset($_GET['redirect']) ? '&redirect=' . urlencode($_GET['redirect']) : '';
+        header('Location: login.php?erreur=1' . $redirect);
+        exit();
+    }
 } else {
-    $_SESSION['erreur'] = "Identifiants incorrects.";
-    header("Location: login.php");
+    header('Location: login.php');
     exit();
 }
-?>

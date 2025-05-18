@@ -1,32 +1,35 @@
-<?php session_start(); ?>
+<?php
+session_start();
+if (isset($_SESSION['id'])) {
+    header('Location: index.php');
+    exit();
+}
+
+$redirect = isset($_GET['redirect']) ? $_GET['redirect'] : '';
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Connexion - OmnesBnB</title>
+    <title>Connexion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="connexion1.css">
 </head>
 <body>
-<!-- Crois en haut à gauche -->
-<a href="index.php" class="btn-back" aria-label="Retour">&times;</a>
+<div class="container">
+    <h2>Connexion à OmnesBnB</h2>
+    <form method="post" action="verif_login.php<?= $redirect ? '?redirect=' . urlencode($redirect) : '' ?>">
+        <label for="email">Email :</label>
+        <input type="email" name="email" required>
 
-<h1>Connexion à OmnesBnB</h1>
-<br>
+        <label for="mdp">Mot de passe :</label>
+        <input type="password" name="mdp" required> <!-- ✅ nom du champ corrigé ici -->
 
-<form action="verif_login.php" method="post">
-    <?php if (isset($_GET['redirect'])): ?>
-        <input type="hidden" name="redirect" value="<?= htmlspecialchars($_GET['redirect']) ?>">
-    <?php endif; ?>
+        <button type="submit">Se connecter</button>
+    </form>
 
-    <input type="text" name="email" placeholder="Email" required><br>
-    <input type="password" name="mdp" placeholder="Mot de passe" required><br>
-    <button type="submit">Se connecter</button>
-</form>
-
-<p><a href="inscription.php" style="color: blue;">Créer un compte</a></p>
-
-<?php if (isset($_SESSION['erreur'])) { echo "<p class='erreur'>" . $_SESSION['erreur'] . "</p>"; unset($_SESSION['erreur']); } ?>
+    <p>Pas encore de compte ? <a href="inscription.php">S'inscrire</a></p>
+</div>
 </body>
 </html>
