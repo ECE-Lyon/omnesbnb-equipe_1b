@@ -160,7 +160,9 @@ $messages = [
         </main>
 
         <footer>
-
+            <div class="footer-content">
+                <p>© 2025 OmnesBnB. Tous droits réservés.</p>
+            </div>
         </footer>
 
     </body>

@@ -67,20 +67,6 @@ $annonces = [
         <script type="text/javascript" src="javascript/animation_menu.js"><</script>
     </head>
 
-    <script>
-        const selectLangueBtn = document.getElementById('selectlangue');
-        const languesOptions = document.getElementById('langues-options');
-
-        selectLangueBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            languesOptions.classList.toggle('hidden');
-        });
-
-        document.addEventListener('click', function () {
-            languesOptions.classList.add('hidden');
-        });
-    </script>
-
     <body>
         <header>
             <section>

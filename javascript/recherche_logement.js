@@ -101,7 +101,7 @@ function afficherResultats(resultats) {
                 const carteLogement = document.createElement('div');
                 carteLogement.className = 'carte-logement';
                 carteLogement.onclick = function() {
-                    window.location.href = 'details_logement.php?id=' + logement.id;
+                    window.location.href = 'detail_annonce.php?id=' + logement.id;
                 };
 
                 // Formater le prix
@@ -153,7 +153,7 @@ function afficherResultatsSansFavoris(resultats) {
         const carteLogement = document.createElement('div');
         carteLogement.className = 'carte-logement';
         carteLogement.onclick = function() {
-            window.location.href = 'details_logement.php?id=' + logement.id;
+            window.location.href = 'detail_annonce.php?id=' + logement.id;
         };
 
         const prix = parseFloat(logement.prix_par_personne).toFixed(2);
