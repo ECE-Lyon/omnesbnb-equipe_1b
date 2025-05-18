@@ -61,7 +61,6 @@ $annonces = [
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>OmnesBnB/menu</title>
         <link rel="stylesheet" href="menu.css">
-        <link rel="stylesheet" href="rechercher_logement_menu.css">
         <link rel="stylesheet" href="annonce.css">
         <script type="text/javascript" src="javascript/recherche_logement.js"></script>
         <script type="text/javascript" src="javascript/langue_accordeon.js"><</script>
@@ -145,37 +144,6 @@ $annonces = [
 
 
         <main>
-            <section class="recherche-logement">
-
-                <div class="search-block">
-
-                    <!-- Barre de recherche -->
-                    <div class="search-container">
-                        <button class="filtre-btn" onclick="toggleFilters()">☰</button>
-                        <input type="text" id="searchInput" placeholder="Destination (Pays/Ville)">
-                        <button class="search-btn" onclick="window.location.href='recherche_logement.php'">🔍</button>
-                    </div>
-
-                    <!-- Filtres en dessous -->
-                    <div id="filtres" class="filtres hidden">
-                        <div class="filtre-group">
-                            <label for="start-date">Date de début :</label>
-                            <input type="date" id="start-date">
-                        </div>
-
-                        <div class="filtre-group">
-                            <label for="end-date">Date de fin :</label>
-                            <input type="date" id="end-date">
-                        </div>
-
-                        <div class="filtre-group">
-                            <label for="voyageurs">Voyageurs :</label>
-                            <input type="number" id="voyageurs" min="1" value="1">
-                        </div>
-                    </div>
-
-                </div>
-            </section>
 
             <section class="logement-recommander">
                 <p class="titre-recommander">Logements recommandés de la semaine 🏆 </p>

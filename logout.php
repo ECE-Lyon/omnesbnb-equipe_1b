@@ -6,7 +6,7 @@ session_destroy();  // Détruit la session
 // Optionnel : supprimer aussi les cookies de session s’il y en a
 setcookie(session_name(), '', time() - 3600, '/');
 
-// Redirection vers la page d’accueil ou de login
+// Redirection vers la page d’accueil
 header("Location: index.php");
 exit();
 ?>

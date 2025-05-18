@@ -27,11 +27,8 @@ body {
 }
 
 .profil-messages img {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid #ccc;
+    width: 24px;
+    height: 24px;
 }
 
 .profil-messages span {
@@ -52,7 +49,7 @@ main {
 ul {
     list-style: none;
     padding: 0;
-    margin: 40px auto;
+    margin: 20px auto;
     max-width: 600px;
 }
 
@@ -61,7 +58,7 @@ ul li {
     padding: 16px;
     margin-bottom: 12px;
     border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 ul li a {
@@ -103,26 +100,32 @@ ul li a:hover {
     background-color: #c8e6c9;
 }
 
-form {
+form.form-message {
+    width: 100%;
     max-width: 600px;
     margin: 20px auto;
     padding: 0 16px;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    box-sizing: border-box;
 }
 
-form textarea {
+.form-message textarea {
     width: 100%;
+    max-width: 100%;
     border-radius: 8px;
-    padding: 10px;
+    padding: 12px;
     font-size: 1rem;
     border: 1px solid #ccc;
     resize: vertical;
+    box-sizing: border-box;
 }
 
-form button {
-    padding: 10px;
+.form-message button {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
     font-size: 1rem;
     background-color: #2D8D88;
     color: white;
@@ -131,11 +134,24 @@ form button {
     cursor: pointer;
 }
 
-form button:hover {
+.form-message button:hover {
     background-color: #276E6A;
 }
 
-/* Mobile-first, améliorations desktop au-dessus */
+.btn-nouvelle-conv {
+    display: block;
+    text-align: center;
+    margin: 1rem auto;
+    padding: 0.6rem 1rem;
+    background-color: #eee;
+    border-radius: 8px;
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+    width: fit-content;
+}
+
+/* Améliorations pour écran large */
 @media (min-width: 768px) {
     .profil-messages span {
         font-size: 1.1rem;
@@ -146,10 +162,11 @@ form button:hover {
     }
 
     ul li {
-        padding: 16px;
+        padding: 20px;
     }
 
-    form {
+    .form-message {
         gap: 16px;
     }
 }
+

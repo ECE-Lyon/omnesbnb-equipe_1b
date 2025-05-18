@@ -1,4 +1,4 @@
-@media screen and (min-width: 375px){
+@media screen and (min-width: 375px) {
     body {
         font-family: Arial, sans-serif;
         margin: 0;
@@ -22,7 +22,6 @@
     }
 
     /* Partie css du titre+logo OmnesBNB*/
-
     .logo-button {
         display: flex;
         flex-direction: column; /* Met l'image au-dessus du texte */
@@ -75,13 +74,13 @@
         background: #017179;
         border: 1px solid #333;
         margin-bottom: 5px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre pour donner du relief */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour donner du relief */
         transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation douce image */
     }
 
     .button-choix:hover .logo-choix-omnes {
         transform: scale(1.1); /* Agrandit un peu plus l'icône */
-        box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Accentue l'ombre au hover */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Accentue l'ombre au hover */
     }
 
     /*css pour le logo choix Messagerie */
@@ -93,13 +92,13 @@
         background: limegreen;
         border: 1px solid #333;
         margin-bottom: 5px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre pour donner du relief */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour donner du relief */
         transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation douce image */
     }
 
     .button-choix:hover .logo-choix-messagerie {
         transform: scale(1.1); /* Agrandit un peu plus l'icône */
-        box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Accentue l'ombre au hover */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Accentue l'ombre au hover */
     }
 
     /*css pour le logo choix Publier */
@@ -111,13 +110,13 @@
         background: cornflowerblue;
         border: 1px solid #333;
         margin-bottom: 5px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre pour donner du relief */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour donner du relief */
         transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation douce image */
     }
 
     .button-choix:hover .logo-choix-publier {
         transform: scale(1.1); /* Agrandit un peu plus l'icône */
-        box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Accentue l'ombre au hover */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Accentue l'ombre au hover */
     }
 
     /*css pour le logo choix Réservation */
@@ -129,13 +128,13 @@
         background: rosybrown;
         border: 1px solid #333;
         margin-bottom: 5px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre pour donner du relief */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour donner du relief */
         transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation douce image */
     }
 
     .button-choix:hover .logo-choix-reservation {
         transform: scale(1.1); /* Agrandit un peu plus l'icône */
-        box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Accentue l'ombre au hover */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Accentue l'ombre au hover */
     }
 
     /*css pour le logo choix Recherche */
@@ -147,13 +146,13 @@
         background: brown;
         border: 1px solid #333;
         margin-bottom: 5px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Ombre pour donner du relief */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour donner du relief */
         transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation douce image */
     }
 
     .button-choix:hover .logo-choix-recherche {
         transform: scale(1.1); /* Agrandit un peu plus l'icône */
-        box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Accentue l'ombre au hover */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Accentue l'ombre au hover */
     }
 
     .button-choix p {
@@ -181,7 +180,6 @@
     }
 
     /*Partie choix langue*/
-
     .langue-accordeon {
         width: 40px;
         height: 40px;
@@ -202,7 +200,7 @@
         background: white;
         border: 1px solid #ddd;
         border-radius: 5px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         display: flex;
         flex-direction: column;
         z-index: 10;
@@ -225,271 +223,305 @@
     .hidden {
         display: none;
     }
+
+    .search-block {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: white;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+    }
+
+    /* Barre de recherche */
+    .search-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px;
+        border-radius: 40px;
+        border: 1px solid #ddd;
+    }
+
+    .search-container input {
+        flex: 1;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        outline: none;
+    }
+
+    .filtre-btn, .search-btn {
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 18px;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s;
+    }
+
+    .filtre-btn:hover, .search-btn:hover {
+        background-color: #f2f2f2;
+    }
+
+    .search-btn {
+        background-color: darkseagreen;
+        color: white;
+    }
+
+    .search-btn:hover {
+        background-color: #017179;
+    }
+
+    /* Section des filtres */
+    .filtres {
+        margin-top: 15px;
+        padding: 15px;
+        border-radius: 12px;
+        border: 1px solid #e0e0e0;
+        transition: all 0.3s ease;
+    }
+
+    .filtres.hidden {
+        display: none;
+    }
+
+    .filtre-group {
+        margin-bottom: 15px;
+        padding: 0 20px 0 0;
+    }
+
+    .filtre-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+        color: #484848;
+    }
+
+    .filtre-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+
+    /* Type de logement */
+    .type-logement {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+    }
+
+    .type-option {
+        flex: 1;
+        min-width: 120px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+
+    .type-option:hover {
+        border-color: #017179;
+        background-color: lightgreen;
+    }
+
+    .type-option.active {
+        border-color: #017179;
+        background-color: lightgreen;
+    }
+
+    .type-option input {
+        margin: 0;
+    }
+
+    /* Sliders */
+    .slider-container {
+        margin: 20px 0;
+    }
+
+    .range-slider {
+        width: 100%;
+    }
+
+    .price-range, .surface-range {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+        color: #717171;
+        margin-top: 5px;
+    }
+
+    /* Bouton d'application des filtres */
+    .appliquer-btn {
+        background-color: darkseagreen;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        width: 100%;
+        margin-top: 10px;
+        transition: background-color 0.2s;
+    }
+
+    .appliquer-btn:hover {
+        background-color: #017179;
+    }
+
+    /* Affichage des valeurs des sliders */
+    .slider-value {
+        text-align: center;
+        font-weight: bold;
+        color: #484848;
+        margin-top: 8px;
+    }
+
+    /*Partie résultat logement*/
+    /* CSS pour les résultats de recherche */
+    .bloc-resultat {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .carte-logement {
+        display: flex;
+        flex-direction: column;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+        cursor: pointer;
+        background-color: white;
+        padding: 5px;
+    }
+
+    .carte-logement:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .image-logement {
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .image-logement img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .carte-logement:hover {
+        transform: scale(1.05);
+    }
+
+    .info-logement {
+        padding: 15px;
+    }
+
+    .info-logement h3 {
+        margin: 0 0 8px 0;
+        font-size: 18px;
+        color: #222;
+        white-space: nowrap; /* Empêche le retour à la ligne, si le titre est trop long */
+        overflow: hidden; /* Cache le texte qui dépasse */
+        text-overflow: ellipsis; /* Ajoute les "..." à la fin */
+    }
+
+    .info-logement p {
+        margin: 5px 0;
+        color: #666;
+        font-size: 14px;
+    }
+
+    .info-logement .localisation {
+        font-weight: 500;
+        color: #333;
+    }
+
+    .info-logement .prix {
+        margin-top: 10px;
+        font-weight: bold;
+        color: #ff385c;
+        font-size: 16px;
+    }
+
+    .info-logement .prix span {
+        font-weight: normal;
+        color: #666;
+        font-size: 14px;
+    }
+
+    .info-logement .type {
+        color: #ff385c;
+        font-weight: 500;
+    }
+
+    .no-result {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 30px;
+        font-size: 18px;
+        color: #666;
+    }
+
+    .loading {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 30px;
+        font-size: 18px;
+        color: #666;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .loading:after {
+        content: '';
+        width: 20px;
+        height: 20px;
+        border: 3px solid #ff385c;
+        border-top: 3px solid transparent;
+        border-radius: 50%;
+        margin-left: 10px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+
+    }
+}
+@media screen and (min-width: 428px) /*représente un iphone 12-13 Pro max*/{
+
 }
 
-.search-block {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: white;
-    border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    padding: 10px;
+@media screen and (min-width: 768px) {
+
 }
 
-/* Barre de recherche */
-.search-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px;
-    border-radius: 40px;
-    border: 1px solid #ddd;
-}
-.search-container input {
-    flex: 1;
-    border: none;
-    padding: 10px;
-    font-size: 16px;
-    outline: none;
-}
-.filtre-btn, .search-btn {
-    border: none;
-    background: none;
-    cursor: pointer;
-    font-size: 18px;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.2s;
-}
-.filtre-btn:hover, .search-btn:hover {
-    background-color: #f2f2f2;
-}
-.search-btn {
-    background-color: darkseagreen;
-    color: white;
-}
-.search-btn:hover {
-    background-color: #017179;
-}
+@media screen and (min-width: 1024px){
 
-/* Section des filtres */
-.filtres {
-    margin-top: 15px;
-    padding: 15px;
-    border-radius: 12px;
-    border: 1px solid #e0e0e0;
-    transition: all 0.3s ease;
-}
-.filtres.hidden {
-    display: none;
-}
-.filtre-group {
-    margin-bottom: 15px;
-}
-.filtre-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 500;
-    color: #484848;
-}
-.filtre-group input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-}
-
-/* Type de logement */
-.type-logement {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 15px;
-}
-.type-option {
-    flex: 1;
-    min-width: 120px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-.type-option:hover {
-    border-color: #017179;
-    background-color: lightgreen;
-}
-.type-option.active {
-    border-color: #017179;
-    background-color: lightgreen;
-}
-.type-option input {
-    margin: 0;
-}
-
-/* Sliders */
-.slider-container {
-    margin: 20px 0;
-}
-.range-slider {
-    width: 100%;
-}
-.price-range, .surface-range {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-    color: #717171;
-    margin-top: 5px;
-}
-
-/* Bouton d'application des filtres */
-.appliquer-btn {
-    background-color: darkseagreen;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    width: 100%;
-    margin-top: 10px;
-    transition: background-color 0.2s;
-}
-.appliquer-btn:hover {
-    background-color: #017179;
-}
-
-/* Affichage des valeurs des sliders */
-.slider-value {
-    text-align: center;
-    font-weight: bold;
-    color: #484848;
-    margin-top: 8px;
-}
-
-
-
-
-
-/* CSS pour les résultats de recherche */
-.bloc-recommander {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.carte-logement {
-    display: flex;
-    flex-direction: column;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-    cursor: pointer;
-    background-color: white;
-}
-
-.carte-logement:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-.image-logement {
-    height: 200px;
-    overflow: hidden;
-}
-
-.image-logement img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s;
-}
-
-.carte-logement:hover .image-logement img {
-    transform: scale(1.05);
-}
-
-.info-logement {
-    padding: 15px;
-}
-
-.info-logement h3 {
-    margin: 0 0 8px 0;
-    font-size: 18px;
-    color: #222;
-}
-
-.info-logement p {
-    margin: 5px 0;
-    color: #666;
-    font-size: 14px;
-}
-
-.info-logement .localisation {
-    font-weight: 500;
-    color: #333;
-}
-
-.info-logement .prix {
-    margin-top: 10px;
-    font-weight: bold;
-    color: #ff385c;
-    font-size: 16px;
-}
-
-.info-logement .prix span {
-    font-weight: normal;
-    color: #666;
-    font-size: 14px;
-}
-
-.info-logement .type {
-    color: #ff385c;
-    font-weight: 500;
-}
-
-.no-result {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 30px;
-    font-size: 18px;
-    color: #666;
-}
-
-.loading {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 30px;
-    font-size: 18px;
-    color: #666;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.loading:after {
-    content: '';
-    width: 20px;
-    height: 20px;
-    border: 3px solid #ff385c;
-    border-top: 3px solid transparent;
-    border-radius: 50%;
-    margin-left: 10px;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
 }
