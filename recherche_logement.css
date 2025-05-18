@@ -1,7 +1,7 @@
-@media screen and (min-width: 375px) /*représente un iphone 11 Pro */{
+@media screen and (min-width: 375px){
     body {
-        margin: 0;
         font-family: Arial, sans-serif;
+        margin: 0;
     }
 
     .header-container {
@@ -20,24 +20,6 @@
         color: black;
         cursor: pointer;
     }
-
-    .profil-btn {
-        font-size: 16px;
-        color: black;
-        text-decoration: none;
-        background-color: white;
-        border: 2px solid #007BFF;
-        border-radius: 20px;
-        padding: 6px 12px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    .profil-btn:hover {
-        background-color: #007BFF;
-        color: white;
-    }
-
 
     /* Partie css du titre+logo OmnesBNB*/
 
@@ -186,7 +168,6 @@
     }
 
 
-
     .langue-dropdown {
         position: relative;
         display: inline-block;
@@ -198,7 +179,6 @@
         cursor: pointer;
         padding: 5px;
     }
-
 
     /*Partie choix langue*/
 
@@ -245,147 +225,271 @@
     .hidden {
         display: none;
     }
+}
 
+.search-block {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
 
-    /*Partie Info OmnesBnB*/
+/* Barre de recherche */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 40px;
+    border: 1px solid #ddd;
+}
+.search-container input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+}
+.filtre-btn, .search-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 18px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+.filtre-btn:hover, .search-btn:hover {
+    background-color: #f2f2f2;
+}
+.search-btn {
+    background-color: darkseagreen;
+    color: white;
+}
+.search-btn:hover {
+    background-color: #017179;
+}
 
-    .info-omnes {
-        background-color: darkseagreen;
-        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
-        border-radius: 20px;
-        padding: 20px;
-        margin: 30px 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-    }
+/* Section des filtres */
+.filtres {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+.filtres.hidden {
+    display: none;
+}
+.filtre-group {
+    margin-bottom: 15px;
+}
+.filtre-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #484848;
+}
+.filtre-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
 
-    .info-block {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 15px;
-        opacity: 0;
-        transform: translateY(50px);
-        transition: all 0.8s ease-out;
-    }
+/* Type de logement */
+.type-logement {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+.type-option {
+    flex: 1;
+    min-width: 120px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.type-option:hover {
+    border-color: #017179;
+    background-color: lightgreen;
+}
+.type-option.active {
+    border-color: #017179;
+    background-color: lightgreen;
+}
+.type-option input {
+    margin: 0;
+}
 
-    .info-block.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Sliders */
+.slider-container {
+    margin: 20px 0;
+}
+.range-slider {
+    width: 100%;
+}
+.price-range, .surface-range {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #717171;
+    margin-top: 5px;
+}
 
-    .info-block.reverse {
-        flex-direction: column;
-    }
+/* Bouton d'application des filtres */
+.appliquer-btn {
+    background-color: darkseagreen;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+.appliquer-btn:hover {
+    background-color: #017179;
+}
 
-    .info-text {
-        font-size: 18px;
-        color: white;
-        max-width: 300px;
-        text-align: center;
-    }
-
-    .info-img img {
-        width: 150px;
-        height: auto;
-    }
-
-    /* Section Logement recommander*/
-
-    /* Séparation */
-    .logement-recommander {
-        border-top: 2px solid #ddd;
-        margin-top: 20px;
-        padding-top: 20px;
-    }
-
-    .logement-recommander .titre-recommander {
-        font-size: 16px;
-        text-align: center;
-    }
-
-    /* Footer moderne et responsive */
-    footer {
-        background-color: #f5f5f5;
-        padding: 20px 10px;
-        margin-top: 40px;
-        position: relative;
-        text-align: center;
-    }
-
-    .footer-content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .footer-content p {
-        margin: 0;
-        font-size: 12px;
-        color: #666;
-    }
-
+/* Affichage des valeurs des sliders */
+.slider-value {
+    text-align: center;
+    font-weight: bold;
+    color: #484848;
+    margin-top: 8px;
 }
 
 
 
 
-@media screen and (min-width: 428px) /*représente un iphone 12-13 Pro max*/{
 
+/* CSS pour les résultats de recherche */
+.bloc-recommander {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-
-@media screen and (min-width: 768px) {
-    .info-block {
-        text-align: center;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 0px 100px;
-    }
-
-    .info-block.reverse {
-        flex-direction: row-reverse;
-    }
-
-    .info-text {
-        font-size: 20px;
-        max-width: 400px;
-    }
-
-    .info-img img {
-        width: 200px;
-    }
-
-    footer {
-        padding: 30px 20px;
-    }
-
-    .footer-content p {
-        font-size: 14px;
-    }
+.carte-logement {
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    background-color: white;
 }
 
-@media screen and (min-width: 1024px){
-    .info-block {
-        padding: 0px 200px;
-    }
-
-    .logement-recommander .titre-recommander {
-        font-size: 20px;
-        padding: 5px 250px;
-        text-align: left;
-    }
-
-    footer {
-        padding: 40px 20px;
-    }
-
-    .footer-content p {
-        font-size: 15px;
-    }
+.carte-logement:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
+.image-logement {
+    height: 200px;
+    overflow: hidden;
+}
+
+.image-logement img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.carte-logement:hover .image-logement img {
+    transform: scale(1.05);
+}
+
+.info-logement {
+    padding: 15px;
+}
+
+.info-logement h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    color: #222;
+}
+
+.info-logement p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.info-logement .localisation {
+    font-weight: 500;
+    color: #333;
+}
+
+.info-logement .prix {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #ff385c;
+    font-size: 16px;
+}
+
+.info-logement .prix span {
+    font-weight: normal;
+    color: #666;
+    font-size: 14px;
+}
+
+.info-logement .type {
+    color: #ff385c;
+    font-weight: 500;
+}
+
+.no-result {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 30px;
+    font-size: 18px;
+    color: #666;
+}
+
+.loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 30px;
+    font-size: 18px;
+    color: #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading:after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 3px solid #ff385c;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    margin-left: 10px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

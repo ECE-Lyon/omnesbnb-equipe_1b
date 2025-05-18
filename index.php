@@ -61,10 +61,11 @@ $annonces = [
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>OmnesBnB/menu</title>
         <link rel="stylesheet" href="menu.css">
-        <link rel="stylesheet" href="rechercher_logement.css">
+        <link rel="stylesheet" href="rechercher_logement_menu.css">
         <link rel="stylesheet" href="annonce.css">
         <script type="text/javascript" src="javascript/recherche_logement.js"></script>
         <script type="text/javascript" src="javascript/langue_accordeon.js"><</script>
+        <script type="text/javascript" src="javascript/animation_menu.js"><</script>
     </head>
 
     <script>
@@ -103,7 +104,15 @@ $annonces = [
                         <img src="images/logo_omnesBNB_noir.png" alt="Logo OmnesBNB" class="logo-img">
                         <h1>OmnesBnB</h1>
                     </button>
-                    <button onclick="window.location.href='login.php'" class="header-button">+</button>
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <!-- Bouton Profil visible après connexion -->
+                        <button onclick="window.location.href='compte.php'" class="header-button" title="Voir mon profil">👤</button>
+                    <?php else: ?>
+                        <!-- Bouton + pour se connecter -->
+                        <button onclick="window.location.href='login.php'" class="header-button" title="Se connecter">+</button>
+                    <?php endif; ?>
+
+
                 </div>
             </section>
 
@@ -143,7 +152,7 @@ $annonces = [
                     <!-- Barre de recherche -->
                     <div class="search-container">
                         <button class="filtre-btn" onclick="toggleFilters()">☰</button>
-                        <input type="text" id="searchInput" placeholder="Destination">
+                        <input type="text" id="searchInput" placeholder="Destination (Pays/Ville)">
                         <button class="search-btn" onclick="window.location.href='recherche_logement.php'">🔍</button>
                     </div>
 
@@ -223,25 +232,4 @@ $annonces = [
 
     </body>
 
-
-    <!-- Javascrpit pour l'animation des informations sur omnesBNB -->
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const blocks = document.querySelectorAll('.info-block');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.3 // Déclenche quand 30% du bloc est visible (tu peux essayer 0.1 ou 0.5 aussi)
-            });
-
-            blocks.forEach(block => observer.observe(block));
-        });
-    </script>
 </html>
