@@ -146,7 +146,7 @@ $messages = [
                 </div>
             </section>
 
-            <div id="resultats" class="bloc-recommander">
+            <div id="resultats" class="bloc-resultat">
                 <!-- Les cartes de logement s’afficheront ici dynamiquement -->
             </div>
 

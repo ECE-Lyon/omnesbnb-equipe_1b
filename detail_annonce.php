@@ -14,7 +14,7 @@ require_once 'base_donnee.php';
 // base_donnee.php doit exposer un objet PDO nommé $pdo
 if (!isset($pdo) || !($pdo instanceof PDO)) {
     try {
-        $pdo = new PDO('mysql:host=localhost;dbname=omnesbnb;charset=utf8mb4', 'db_user', 'db_pass', [
+        $bdd = new PDO('mysql:host=localhost;dbname=omnesbnb;charset=utf8mb4', 'db_user', 'db_pass', [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         ]);
@@ -24,7 +24,7 @@ if (!isset($pdo) || !($pdo instanceof PDO)) {
 }
 
 // Récupération des données de l'annonce
-$stmt = $pdo->prepare(
+$stmt = $bdd->prepare(
     'SELECT l.*, u.pseudo, u.avatar
      FROM logements l
      JOIN users u ON u.id = l.id_utilisateur
