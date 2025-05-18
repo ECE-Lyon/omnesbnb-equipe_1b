@@ -9,24 +9,25 @@ if (!isset($_SESSION['id'])) {
 
 $mon_id = $_SESSION['id'];
 
-$profil = $bdd->prepare("SELECT prenom, nom FROM utilisateurs WHERE id = ?");
+// Récupération de mes infos
+$profil = $bdd->prepare("SELECT prenom, nom, photo_profil FROM utilisateursTest WHERE id = ?");
 $profil->execute([$mon_id]);
 $mon_profil = $profil->fetch(PDO::FETCH_ASSOC);
 
+// Liste des conversations avec dernier message
 $requete = $bdd->prepare("
-    SELECT u.id, u.nom, u.prenom,
+    SELECT u.id, u.nom, u.prenom, u.photo_profil,
            (SELECT message FROM messages m2 
-            WHERE (m2.expediteur_id = :id AND m2.destinataire_id = u.id) 
-               OR (m2.expediteur_id = u.id AND m2.destinataire_id = :id)
-            ORDER BY date_envoi DESC
-            LIMIT 1) AS dernier_message
-    FROM utilisateurs u
+            WHERE ((m2.expediteur_id = :id AND m2.destinataire_id = u.id)
+                OR (m2.expediteur_id = u.id AND m2.destinataire_id = :id))
+            ORDER BY date_envoi DESC LIMIT 1) AS dernier_message
+    FROM utilisateursTest u
     WHERE u.id != :id
-    AND EXISTS (
-        SELECT 1 FROM messages 
-        WHERE (expediteur_id = :id AND destinataire_id = u.id)
-           OR (expediteur_id = u.id AND destinataire_id = :id)
-    )
+      AND EXISTS (
+          SELECT 1 FROM messages 
+          WHERE (expediteur_id = :id AND destinataire_id = u.id)
+             OR (expediteur_id = u.id AND destinataire_id = :id)
+      )
     ORDER BY u.nom
 ");
 $requete->execute(['id' => $mon_id]);
@@ -45,7 +46,7 @@ $conversations = $requete->fetchAll(PDO::FETCH_ASSOC);
 <header class="header-messages">
     <a href="index.php" class="btn-retour">‹</a>
     <div class="profil-messages">
-        <img src="images/default.jpg" alt="Photo de profil">
+        <img src="<?= htmlspecialchars($mon_profil['photo_profil'] ?? 'images/default.jpg') ?>" alt="Photo de profil">
         <span><?= htmlspecialchars($mon_profil['prenom'] . " " . $mon_profil['nom']) ?></span>
     </div>
 </header>
@@ -58,8 +59,9 @@ $conversations = $requete->fetchAll(PDO::FETCH_ASSOC);
             <?php foreach ($conversations as $conv) : ?>
                 <li>
                     <a href="messages.php?id=<?= $conv['id'] ?>">
+                        <img src="<?= htmlspecialchars($conv['photo_profil'] ?? 'images/default.jpg') ?>" class="mini-profil" alt="">
                         <strong><?= htmlspecialchars($conv['prenom'] . " " . $conv['nom']) ?></strong><br>
-                        <em><?= htmlspecialchars($conv['dernier_message']) ?></em>
+                        <em><?= htmlspecialchars($conv['dernier_message'] ?? '[aucun message]') ?></em>
                     </a>
                 </li>
             <?php endforeach; ?>
