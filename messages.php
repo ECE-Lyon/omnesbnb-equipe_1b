@@ -3,75 +3,73 @@ session_start();
 require_once 'base_donnee.php';
 
 if (!isset($_SESSION['id'])) {
-    header('Location: login.php');
+    header('Location: login.php?redirect=messagerie.php');
     exit();
 }
 
 $mon_id = $_SESSION['id'];
 
-// Vérification de l'identifiant du destinataire
-if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
-    die("Identifiant invalide.");
+// ID du destinataire dans l'URL
+$autre_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+if ($autre_id <= 0) {
+    echo "Conversation invalide.";
+    exit();
 }
 
-$autre_id = intval($_GET['id']);
-
-// Récupérer les infos de l'autre utilisateur
-$requeteUser = $bdd->prepare("SELECT nom, prenom FROM utilisateurs WHERE id = ?");
-$requeteUser->execute([$autre_id]);
-$autre = $requeteUser->fetch(PDO::FETCH_ASSOC);
-
+// Récup info utilisateur destinataire
+$stmt = $bdd->prepare("SELECT nom, prenom, photo_profil FROM utilisateursTest WHERE id = ?");
+$stmt->execute([$autre_id]);
+$autre = $stmt->fetch(PDO::FETCH_ASSOC);
 if (!$autre) {
-    die("Utilisateur introuvable.");
+    echo "Utilisateur introuvable.";
+    exit();
 }
 
-// Marquer les messages reçus comme lus
-$updateLu = $bdd->prepare("UPDATE messages SET lu = 1 WHERE expediteur_id = ? AND destinataire_id = ?");
-$updateLu->execute([$autre_id, $mon_id]);
+// Marquer tous les messages reçus comme lus
+$bdd->prepare("UPDATE messages SET lu = 1 WHERE expediteur_id = ? AND destinataire_id = ?")
+    ->execute([$autre_id, $mon_id]);
 
-// Récupérer tous les messages entre les deux utilisateurs
-$requeteMessages = $bdd->prepare("
+// Récupérer tous les messages entre les deux
+$messages = $bdd->prepare("
     SELECT * FROM messages
     WHERE (expediteur_id = :me AND destinataire_id = :other)
        OR (expediteur_id = :other AND destinataire_id = :me)
     ORDER BY date_envoi ASC
 ");
-$requeteMessages->execute(['me' => $mon_id, 'other' => $autre_id]);
-$messages = $requeteMessages->fetchAll(PDO::FETCH_ASSOC);
+$messages->execute(['me' => $mon_id, 'other' => $autre_id]);
+$liste_messages = $messages->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Conversation avec <?= htmlspecialchars($autre['prenom'] . ' ' . $autre['nom']) ?></title>
+    <title>Conversation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="messagerie.css">
 </head>
 <body>
-<h1>Conversation avec <?= htmlspecialchars($autre['prenom'] . ' ' . $autre['nom']) ?></h1>
+<header class="header-messages">
+    <a href="messagerie.php" class="btn-retour">‹</a>
+    <div class="profil-messages">
+        <img src="<?= htmlspecialchars($autre['photo_profil'] ?? 'images/default.jpg') ?>" alt="">
+        <span><?= htmlspecialchars($autre['prenom'] . " " . $autre['nom']) ?></span>
+    </div>
+</header>
 
-<div class="messages-zone">
-    <?php if (empty($messages)) : ?>
-        <p>Aucun message pour l’instant.</p>
-    <?php else : ?>
-        <?php foreach ($messages as $msg) : ?>
-            <div style="text-align: <?= $msg['expediteur_id'] == $mon_id ? 'right' : 'left' ?>;">
-                <p>
-                    <strong><?= $msg['expediteur_id'] == $mon_id ? "Moi" : htmlspecialchars($autre['prenom']) ?> :</strong><br>
-                    <?= nl2br(htmlspecialchars($msg['contenu'])) ?><br>
-                    <small><?= $msg['date_envoi'] ?></small>
-                </p>
-            </div>
-        <?php endforeach; ?>
-    <?php endif; ?>
-</div>
+<main class="conversation">
+    <?php foreach ($liste_messages as $msg): ?>
+        <div class="<?= $msg['expediteur_id'] == $mon_id ? 'msg-moi' : 'msg-lui' ?>">
+            <p><?= htmlspecialchars($msg['message']) ?></p>
+            <small><?= date('d/m/Y H:i', strtotime($msg['date_envoi'])) ?></small>
+        </div>
+    <?php endforeach; ?>
+</main>
 
-<form action="envoyer_message.php" method="post">
+<form class="form-message" action="envoyer_message.php" method="post">
     <input type="hidden" name="destinataire_id" value="<?= $autre_id ?>">
-    <textarea name="contenu" rows="4" cols="50" placeholder="Votre message..." required></textarea><br>
+    <textarea name="message" placeholder="Écris ton message..." required></textarea>
     <button type="submit">Envoyer</button>
 </form>
-
-<p><a href="messagerie.php">← Retour à la messagerie</a></p>
 </body>
 </html>
