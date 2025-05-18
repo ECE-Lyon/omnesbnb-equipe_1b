@@ -51,6 +51,8 @@ $conversations = $requete->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </header>
 
+<a href="nouvelle_conversation.php" class="btn-nouvelle-conv">+ Nouvelle conversation</a>
+
 <main>
     <?php if (empty($conversations)) : ?>
         <p class="no-conv">Vous n'avez encore aucune conversation.</p>
