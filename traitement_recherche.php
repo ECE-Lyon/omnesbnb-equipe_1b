@@ -1,10 +1,8 @@
 <?php
 // traitement_recherche.php - Fichier qui gère les requêtes AJAX pour la recherche de logements
 
-// Démarrer la session
 session_start();
 
-// Inclure le fichier de connexion à la base de données
 require_once 'base_donnee.php';
 
 // Vérifier si la requête est de type POST et contient l'action 'rechercher'
@@ -30,30 +28,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     $sql = "SELECT * FROM logements WHERE statut = 'disponible'";
     $params = [];
 
-    // Filtrer par destination (recherche dans pays, ville et adresse)
+    // Filtrer par destination (recherche dans ville)
     if (!empty($destination)) {
-        /*
-        $sql .= " AND (pays LIKE ? OR ville LIKE ?)";
-        $searchTerm = "%{$destination}%";
-        $params[] = $searchTerm;
-        $params[] = $searchTerm;
-        */
         $sql .= " AND (LOWER(ville) LIKE ?)";
         $params[] = '%' . strtolower(trim($destination)) . '%';
     }
 
-    // Filtrer par dates
-    /*
-    if (!empty($dateDebut)) {
-        $sql .= " AND date_debut >= ?";
-        $params[] = $dateDebut;
-    }
-
-    if (!empty($dateFin)) {
-        $sql .= " AND date_fin <= ?";
-        $params[] = $dateFin;
-    }
-*/
     // Filtrer par nombre de voyageurs
     if ($voyageurs > 1) {
         $sql .= " AND places >= ?";

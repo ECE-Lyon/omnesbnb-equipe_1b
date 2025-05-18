@@ -24,7 +24,7 @@ if (!$user) {
 <head>
     <meta charset="UTF-8">
     <title>Mon Profil</title>
-    <link rel="stylesheet" href="compte.css"> <!-- 💡 ajoute ce fichier -->
+    <link rel="stylesheet" href="compte.css">
 </head>
 <body>
 <a href="index.php" class="close-button" title="Retour à l’accueil">✖</a>
@@ -35,7 +35,7 @@ if (!$user) {
     <?php if (!empty($user['photo_profil'])): ?>
         <img src="<?php echo htmlspecialchars($user['photo_profil']); ?>" alt="Photo de profil" class="profil-photo">
     <?php else: ?>
-        <img src="images/default_profil.png" alt="Profil par défaut" class="profil-photo">
+        <img src="images/default.jpg" alt="Profil par défaut" class="profil-photo">
     <?php endif; ?>
 
     <?php if (!empty($user['telephone'])): ?>
@@ -48,11 +48,18 @@ if (!$user) {
     <div class="profil-actions">
         <a href="edit_profile.php">Modifier mon profil</a>
         <a href="my_listings.php">Voir mes logements publiés</a>
+        <a href="mes_favoris.php">Voir mes favoris ❤️</a>
         <a href="logout.php">Se déconnecter</a>
 
 
     </div>
 </div>
+
+<footer>
+    <div class="footer-content">
+        <p>© 2025 OmnesBnB. Tous droits réservés.</p>
+    </div>
+</footer>
 
 </body>
 </html>

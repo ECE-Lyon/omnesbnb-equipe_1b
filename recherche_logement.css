@@ -409,6 +409,7 @@
         cursor: pointer;
         background-color: white;
         padding: 5px;
+        position: relative; /* pour le positionnement absolu du cœur */
     }
 
     .carte-logement:hover {
@@ -474,6 +475,30 @@
         font-weight: 500;
     }
 
+
+    /*Partie coeur (favoris) dans une annonce)*/
+    .favoris-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 10;
+        font-size: 20px;
+        color: #ff385c;
+        background-color: white;
+        border-radius: 50%;
+        padding: 6px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        cursor: pointer;
+    }
+
+    .favoris-icon i.fa-solid {
+        color: #ff385c;
+    }
+
+    .favoris-icon i.fa-regular {
+        color: #ccc;
+    }
+
     .no-result {
         grid-column: 1 / -1;
         text-align: center;
@@ -513,6 +538,8 @@
         }
 
     }
+
+
 }
 @media screen and (min-width: 428px) /*représente un iphone 12-13 Pro max*/{
 

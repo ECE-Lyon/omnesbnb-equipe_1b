@@ -98,7 +98,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <img src="images/logo_omnesBNB_noir.png" alt="Logo OmnesBNB" class="logo-img">
                         <h1>OmnesBnB</h1>
                     </button>
-                    <button onclick="window.location.href='login.php'" class="header-button">+</button>
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <!-- Bouton Profil visible après connexion -->
+                        <button onclick="window.location.href='compte.php'" class="header-button" title="Voir mon profil">👤</button>
+                    <?php else: ?>
+                        <!-- Bouton + pour se connecter -->
+                        <button onclick="window.location.href='login.php'" class="header-button" title="Se connecter">+</button>
+                    <?php endif; ?>
                 </div>
             </section>
 

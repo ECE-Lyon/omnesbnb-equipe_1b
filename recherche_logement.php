@@ -20,6 +20,7 @@ $messages = [
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>OmnesBnB/recherche_logement</title>
         <link rel="stylesheet" href="recherche_logement.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <script type="text/javascript" src="javascript/recherche_logement.js"></script>
 
     </head>
@@ -37,7 +38,13 @@ $messages = [
                         <img src="images/logo_omnesBNB_noir.png" alt="Logo OmnesBNB" class="logo-img">
                         <h1>OmnesBnB</h1>
                     </button>
-                    <button onclick="window.location.href='login.php'" class="header-button">+</button>
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <!-- Bouton Profil visible après connexion -->
+                        <button onclick="window.location.href='compte.php'" class="header-button" title="Voir mon profil">👤</button>
+                    <?php else: ?>
+                        <!-- Bouton + pour se connecter -->
+                        <button onclick="window.location.href='login.php'" class="header-button" title="Se connecter">+</button>
+                    <?php endif; ?>
                 </div>
             </section>
 
@@ -76,7 +83,7 @@ $messages = [
                     <!-- Barre de recherche -->
                     <div class="search-container">
                         <button class="filtre-btn" onclick="toggleFilters()">☰</button>
-                        <input type="text" id="searchInput" placeholder="Destination (Pays/Ville)">
+                        <input type="text" id="searchInput" placeholder="Destination (Ville)">
                         <button class="search-btn" id="filtrer-btn">🔍</button>
                     </div>
 

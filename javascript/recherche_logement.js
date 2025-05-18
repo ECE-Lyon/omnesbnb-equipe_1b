@@ -88,26 +88,81 @@ function afficherResultats(resultats) {
         return;
     }
 
-    // Créer un élément pour chaque résultat
+    // Récupérer la liste des favoris avant d'afficher les résultats
+    fetch('get_favoris.php')
+        .then(response => response.json())
+        .then(favoris => {
+            // Créer un ensemble pour une recherche efficace
+            const favorisSet = new Set(favoris);
+
+            // Créer un élément pour chaque résultat
+            resultats.forEach(logement => {
+                // Créer la carte de logement
+                const carteLogement = document.createElement('div');
+                carteLogement.className = 'carte-logement';
+                carteLogement.onclick = function() {
+                    window.location.href = 'details_logement.php?id=' + logement.id;
+                };
+
+                // Formater le prix
+                const prix = parseFloat(logement.prix_par_personne).toFixed(2);
+
+                // Déterminer le type de logement en français
+                let typeLogementText = 'logement entier';
+                if (logement.type_location === 'colocation') {
+                    typeLogementText = 'colocation';
+                }
+
+                // Vérifier si ce logement est en favoris
+                const estFavori = favorisSet.has(parseInt(logement.id));
+                const heartClass = estFavori ? 'fa-solid' : 'fa-regular';
+
+                // Créer le HTML pour cette carte
+                carteLogement.innerHTML = `
+                    <div class="favoris-icon" data-id="${logement.id}" onclick="toggleFavori(event, ${logement.id})">
+                        <i class="fa-heart ${heartClass}"></i>
+                    </div>
+                    <div class="image-logement">
+                        <img src="${logement.photo_principale || 'default.jpg'}" alt="${logement.titre}">
+                    </div>
+                    <div class="info-logement">
+                        <h3>${logement.titre}</h3>
+                        <p class="localisation">${logement.ville}, ${logement.pays}</p>
+                        <p class="type">${typeLogementText}</p>
+                        <p class="details">${logement.surfaces} m² · ${logement.places} voyageurs</p>
+                        <p class="prix">${prix} € <span>par personne et par nuit</span></p>
+                    </div>
+                `;
+
+                // Ajouter la carte au conteneur
+                container.appendChild(carteLogement);
+            });
+        })
+        .catch(error => {
+            console.error('Erreur lors de la récupération des favoris:', error);
+            // Affiche quand même les résultats sans icônes de favoris marquées
+            afficherResultatsSansFavoris(resultats);
+        });
+}
+
+function afficherResultatsSansFavoris(resultats) {
+    const container = document.getElementById('resultats');
+
     resultats.forEach(logement => {
-        // Créer la carte de logement
+        // Code similaire à la fonction principale mais sans la vérification des favoris
         const carteLogement = document.createElement('div');
         carteLogement.className = 'carte-logement';
         carteLogement.onclick = function() {
             window.location.href = 'details_logement.php?id=' + logement.id;
         };
 
-        // Formater le prix
         const prix = parseFloat(logement.prix_par_personne).toFixed(2);
+        let typeLogementText = logement.type_location === 'colocation' ? 'colocation' : 'logement entier';
 
-        // Déterminer le type de logement en français
-        let typeLogementText = 'logement entier';
-        if (logement.type_location === 'colocation') {
-            typeLogementText = 'colocation';
-        }
-
-        // Créer le HTML pour cette carte
         carteLogement.innerHTML = `
+            <div class="favoris-icon" data-id="${logement.id}" onclick="toggleFavori(event, ${logement.id})">
+                <i class="fa-regular fa-heart"></i>
+            </div>
             <div class="image-logement">
                 <img src="${logement.photo_principale || 'default.jpg'}" alt="${logement.titre}">
             </div>
@@ -120,10 +175,56 @@ function afficherResultats(resultats) {
             </div>
         `;
 
-        // Ajouter la carte au conteneur
         container.appendChild(carteLogement);
     });
 }
+
+function toggleFavori(event, logementId) {
+    event.stopPropagation(); // empêche d'ouvrir la page de détail
+
+    const icon = event.currentTarget.querySelector('i');
+    const isActive = icon.classList.contains('fa-solid');
+
+    fetch('ajouter_favoris.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `id_logement=${logementId}&action=${isActive ? 'remove' : 'add'}`
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                // Changer l'icône (plein ou vide)
+                icon.classList.toggle('fa-solid');
+                icon.classList.toggle('fa-regular');
+            } else {
+                console.error("Erreur: ", data.message);
+            }
+        })
+        .catch(error => console.error('Erreur:', error));
+}
+
+function retirerFavori(idLogement) {
+    fetch('retirer_favoris.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `id_logement=${idLogement}`
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                const element = document.getElementById('favori-' + idLogement);
+                if (element) {
+                    element.remove();
+                }
+            } else {
+                console.error("Erreur: ", data.message);
+            }
+        })
+        .catch(error => console.error('Erreur lors de la suppression du favori:', error));
+}
+
 
 // Fonction utilitaire pour formater les dates
 function formatDate(dateString) {
