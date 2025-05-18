@@ -71,6 +71,14 @@ $annonces = [
         <header>
             <section>
                 <div class="header-container">
+                    <div class="header-actions">
+
+                        <?php if (in_array($_SESSION['id'] ?? 0, [1, 3, 5])): ?>
+                            <button onclick="window.location.href='admin.php'" class="header-button" title="Admin">⚙️</button>
+                        <?php endif; ?>
+                    </div>
+
+
                     <div class="langue-accordeon">
                         <button id="selectlangue" class="select-langue">
                             <img src="images/<?php echo $langue; ?>.png" alt="<?php echo $langue; ?>" class="langue-icone">
