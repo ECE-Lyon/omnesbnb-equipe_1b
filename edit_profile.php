@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nom = $_POST['nom'];
     $email = $_POST['email'];
     $new_password = $_POST['new_password'];
-
+    $telephone = $_POST['telephone'];
     $photo_path = $user['photo_profil']; // par défaut on garde l'existante
 
 // Si un fichier a été uploadé
@@ -54,11 +54,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Construction de la requête
     if (!empty($new_password)) {
         $hash = password_hash($new_password, PASSWORD_DEFAULT);
-        $sql = "UPDATE utilisateursTest SET prenom = ?, nom = ?, email = ?, mot_de_passe = ?, photo_profil = ? WHERE id = ?";
-        $params = [$prenom, $nom, $email, $hash,$photo_path, $user_id];
+        $sql = "UPDATE utilisateursTest SET prenom = ?, nom = ?, email = ?, mot_de_passe = ?, photo_profil = ?,telephone = ? WHERE id = ?";
+        $params = [$prenom, $nom, $email, $hash,$photo_path, $telephone,$user_id];
     } else {
-        $sql = "UPDATE utilisateursTest SET prenom = ?, nom = ?, email = ?, photo_profil = ? WHERE id = ?";
-        $params = [$prenom, $nom, $email,$photo_path, $user_id];
+        $sql = "UPDATE utilisateursTest SET prenom = ?, nom = ?, email = ?, photo_profil = ? ,telephone = ?WHERE id = ?";
+        $params = [$prenom, $nom, $email,$photo_path,$telephone, $user_id];
     }
 
     $update = $bdd->prepare($sql);
@@ -88,6 +88,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <label>Email :</label>
         <input type="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>" required>
+
+        <label>Téléphone :</label>
+        <input type="text" name="telephone" value="<?php echo htmlspecialchars($user['telephone'] ?? ''); ?>" placeholder="Ex : 0601020304">
+
 
         <label>Photo de profil :</label>
         <input type="file" name="photo_profil" accept="image/*">

@@ -38,6 +38,10 @@ if (!$user) {
         <img src="images/default_profil.png" alt="Profil par défaut" class="profil-photo">
     <?php endif; ?>
 
+    <?php if (!empty($user['telephone'])): ?>
+        <p class="profil-info"><strong>Téléphone :</strong> <?php echo htmlspecialchars($user['telephone']); ?></p>
+    <?php endif; ?>
+
 
     <p class="profil-info"><strong>Email :</strong> <?php echo htmlspecialchars($user['email']); ?></p>
 
