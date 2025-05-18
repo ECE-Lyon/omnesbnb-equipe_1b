@@ -16,6 +16,10 @@
 <br>
 
 <form action="verif_login.php" method="post">
+    <?php if (isset($_GET['redirect'])): ?>
+        <input type="hidden" name="redirect" value="<?= htmlspecialchars($_GET['redirect']) ?>">
+    <?php endif; ?>
+
     <input type="text" name="email" placeholder="Email" required><br>
     <input type="password" name="mdp" placeholder="Mot de passe" required><br>
     <button type="submit">Se connecter</button>

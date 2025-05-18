@@ -19,6 +19,7 @@ if ($utilisateur && password_verify($mdp, $utilisateur['mot_de_passe'])) {
         'nom' => $utilisateur['nom'],
         'email' => $utilisateur['email']
     ];
+    $_SESSION['user_id'] = $utilisateur['id'];
     header("Location: index.php");
     exit();
 } else {
