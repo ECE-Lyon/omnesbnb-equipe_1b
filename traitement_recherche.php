@@ -33,9 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     // Filtrer par destination (recherche dans pays, ville et adresse)
     if (!empty($destination)) {
         /*
-        $sql .= " AND (pays LIKE ? OR ville LIKE ? OR adresse LIKE ?)";
+        $sql .= " AND (pays LIKE ? OR ville LIKE ?)";
         $searchTerm = "%{$destination}%";
-        $params[] = $searchTerm;
         $params[] = $searchTerm;
         $params[] = $searchTerm;
         */
@@ -54,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         $sql .= " AND date_fin <= ?";
         $params[] = $dateFin;
     }
-
+*/
     // Filtrer par nombre de voyageurs
     if ($voyageurs > 1) {
         $sql .= " AND places >= ?";
@@ -78,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         $sql .= " AND surfaces >= ?";
         $params[] = $surfaceMin;
     }
-    */
+
 
     // Trier les résultats (par exemple par date de création, du plus récent au plus ancien)
     $sql .= " ORDER BY date_creation DESC";

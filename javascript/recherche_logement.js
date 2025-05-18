@@ -109,14 +109,13 @@ function afficherResultats(resultats) {
         // Créer le HTML pour cette carte
         carteLogement.innerHTML = `
             <div class="image-logement">
-                <img src="images/logements/${logement.photo_principale || 'default.jpg'}" alt="${logement.titre}">
+                <img src="${logement.photo_principale || 'default.jpg'}" alt="${logement.titre}">
             </div>
             <div class="info-logement">
                 <h3>${logement.titre}</h3>
                 <p class="localisation">${logement.ville}, ${logement.pays}</p>
                 <p class="type">${typeLogementText}</p>
                 <p class="details">${logement.surfaces} m² · ${logement.places} voyageurs</p>
-                <p class="dates">Du ${formatDate(logement.date_debut)} au ${formatDate(logement.date_fin)}</p>
                 <p class="prix">${prix} € <span>par personne et par nuit</span></p>
             </div>
         `;
