@@ -40,65 +40,112 @@ main {
     padding: 20px 16px;
 }
 
-.no-conv {
-    text-align: center;
-    margin-top: 50px;
-    color: #888;
-}
-
-ul {
+.liste-conv {
     list-style: none;
     padding: 0;
-    margin: 20px auto;
+    margin: 1rem auto;
     max-width: 600px;
-}
-
-ul li {
-    background: #f9f9f9;
-    padding: 16px;
-    margin-bottom: 12px;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    cursor: pointer;
-}
-
-ul li a {
-    text-decoration: none;
-    color: #000;
-    display: block;
-}
-
-ul li a:hover {
-    background: #e1f5fe;
-    border-radius: 10px;
-    padding: 8px;
-}
-
-.messages-zone {
-    max-width: 600px;
-    margin: 40px auto;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 0 16px;
+    gap: 1rem;
 }
 
-.messages-zone div {
-    background-color: #f2f2f2;
-    padding: 12px;
-    border-radius: 12px;
+.liste-conv li {
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    transition: background-color 0.2s ease;
+}
+
+.liste-conv li:hover {
+    background-color: #f1f1f1;
+}
+
+.liste-conv a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.mini-profil {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+}
+
+.liste-conv strong {
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.liste-conv em {
+    font-size: 0.9rem;
+    color: #555;
+    display: block;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.no-conv {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+    margin-top: 2rem;
+}
+
+
+.conversation {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 0.5rem;
+    max-width: 600px;
+    margin: auto;
+}
+
+.msg-moi, .msg-lui {
     max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 15px;
     word-wrap: break-word;
+    position: relative;
+    background-color: #f1f1f1;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.messages-zone div:nth-child(odd) {
-    align-self: flex-start;
-    background-color: #e0f7fa;
-}
-
-.messages-zone div:nth-child(even) {
+.msg-moi {
     align-self: flex-end;
-    background-color: #c8e6c9;
+    background-color: #d1e7dd; /* vert pâle */
+    border-bottom-right-radius: 0;
+}
+
+.msg-lui {
+    align-self: flex-start;
+    background-color: #e2e3e5; /* gris clair */
+    border-bottom-left-radius: 0;
+}
+
+.msg-moi p,
+.msg-lui p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.msg-moi small,
+.msg-lui small {
+    display: block;
+    font-size: 0.75rem;
+    color: #555;
+    margin-top: 4px;
+    text-align: right;
 }
 
 form.form-message {
@@ -153,7 +200,7 @@ form.form-message {
 }
 
 /* Améliorations pour écran large */
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
     .profil-messages span {
         font-size: 1.1rem;
     }

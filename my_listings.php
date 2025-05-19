@@ -3,12 +3,12 @@ session_start();
 require_once 'base_donnee.php';
 
 // Vérifie que l'utilisateur est connecté
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['id'])) {
     header('Location: login.php');
     exit();
 }
 
-$user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['id'];
 
 // Vérifie que l'utilisateur existe dans utilisateursTest
 $query = $bdd->prepare("SELECT * FROM utilisateursTest WHERE id = ?");

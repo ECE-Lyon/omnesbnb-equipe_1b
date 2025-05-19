@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-$user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['id'];
 
 // Récupérer les infos actuelles de l'utilisateur
 $stmt = $bdd->prepare("SELECT * FROM utilisateursTest WHERE id = ?");

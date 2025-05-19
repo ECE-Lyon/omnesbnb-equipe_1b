@@ -70,13 +70,8 @@ $annonces = [
     <body>
         <header>
             <section>
-                <div class="header-container">
-                    <div class="header-actions">
 
-                        <?php if (in_array($_SESSION['id'] ?? 0, [1, 3, 5])): ?>
-                            <button onclick="window.location.href='admin.php'" class="header-button" title="Admin">⚙️</button>
-                        <?php endif; ?>
-                    </div>
+                <div class="header-container">
 
 
                     <div class="langue-accordeon">
@@ -97,7 +92,7 @@ $annonces = [
                         <img src="images/logo_omnesBNB_noir.png" alt="Logo OmnesBNB" class="logo-img">
                         <h1>OmnesBnB</h1>
                     </button>
-                    <?php if (isset($_SESSION['user_id'])): ?>
+                    <?php if (isset($_SESSION['id'])): ?>
                         <!-- Bouton Profil visible après connexion -->
                         <button onclick="window.location.href='compte.php'" class="header-button" title="Voir mon profil">👤</button>
                     <?php else: ?>
@@ -113,7 +108,7 @@ $annonces = [
 
         <nav>
             <div class="choix-menu">
-                <button onclick="window.location.href='../location.php'" class="button-choix">
+                <button onclick="window.location.href='location.php'" class="button-choix">
                     <img src="images/icon_reservation.png" alt="logo réservation" class="logo-choix-reservation">
                     <p>Réservation</p>
                 </button>

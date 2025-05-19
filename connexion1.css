@@ -67,7 +67,7 @@ form {
 }
 
 /* Champs de saisie */
-form input[type="text"],
+form input[type="email"],
 form input[type="password"] {
     width: 100%;
     padding: var(--padding-mobile);
@@ -116,7 +116,7 @@ p a {
 }
 
 /* Desktop / Tablet (≥768px) */
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
     body {
         padding: 40px;
     }

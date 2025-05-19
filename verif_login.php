@@ -18,8 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($utilisateur && password_verify($motdepasse, $utilisateur['mot_de_passe'])) {
         $_SESSION['id'] = $utilisateur['id'];
-        $_SESSION['user_id'] = $utilisateur['id']; // utile si ton site utilise les deux
-
+        /*$_SESSION['user_id'] = $utilisateur['id']; // utile si ton site utilise les deux
+*/
         if (isset($_GET['redirect']) && !empty($_GET['redirect'])) {
             header('Location: ' . $_GET['redirect']);
         } else {

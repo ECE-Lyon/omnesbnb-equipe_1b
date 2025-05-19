@@ -38,7 +38,7 @@ $messages = [
                         <img src="images/logo_omnesBNB_noir.png" alt="Logo OmnesBNB" class="logo-img">
                         <h1>OmnesBnB</h1>
                     </button>
-                    <?php if (isset($_SESSION['user_id'])): ?>
+                    <?php if (isset($_SESSION['id'])): ?>
                         <!-- Bouton Profil visible après connexion -->
                         <button onclick="window.location.href='compte.php'" class="header-button" title="Voir mon profil">👤</button>
                     <?php else: ?>
